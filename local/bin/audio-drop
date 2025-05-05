@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Which audio track are we keeping?"
+read number
+
+for mkvfile in *.mkv; do
+    basename="${mkvfile%.mkv}"
+    mkvmerge -o "penis${basename}.mkv" --audio-tracks "${number}" "${mkvfile}"
+    rm "${mkvfile}"
+    mv "temp${basename}.mkv" "${basename}.mkv"
+done

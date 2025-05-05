@@ -1,0 +1,48 @@
+#!/bin/bash
+
+for mkvfile in *.mkv; do
+    basename="${mkvfile%.mkv}"
+
+    echo "Extracting subtitles from ${mkvfile}..."
+
+    # Use ffprobe to detect the subtitle format
+    subtitle_format=$(ffprobe -v error -select_streams s:0 -show_entries stream=codec_name -of csv=p=0 "$mkvfile")
+
+    if [ "$subtitle_format" == "ass" ]; then
+        output_sub="${basename}eng.ass"
+    elif [ "$subtitle_format" == "subrip" ]; then
+        output_sub="${basename}eng.srt"
+    else
+        echo "Unsupported subtitle format: $subtitle_format. Skipping..."
+        continue
+    fi
+
+    # Extract the first subtitle track and save it with the correct extension
+    ffmpeg -i "$mkvfile" -map 0:s:0 "$output_sub"
+
+    if [ -f "$output_sub" ]; then
+        echo "Successfully extracted: $output_sub"
+
+        # Check if the original subtitle file exists (could be either .srt or .ass)
+        if [ -f "${basename}.srt" ]; then
+            # Align the subtitles if .srt exists
+            alass-cli "$output_sub" "${basename}.srt" "${basename}temp.srt"
+            rm "${basename}.srt"
+            mv "${basename}temp.srt" "${basename}.srt"
+        elif [ -f "${basename}.ass" ]; then
+            # Align the subtitles if .ass exists
+            echo "Aligning $output_sub with ${basename}.ass"
+            alass-cli "$output_sub" "${basename}.ass" "${basename}temp.ass"
+            rm "${basename}.ass"
+            mv "${basename}temp.ass" "${basename}.ass"
+        else
+            echo "No original .srt or .ass file found for ${basename}. Continuing to the next file..."
+        fi
+
+        # Clean up the extracted subtitle file
+        rm "$output_sub"
+
+    else
+        echo "Failed to extract subtitle for ${mkvfile}"
+    fi
+done

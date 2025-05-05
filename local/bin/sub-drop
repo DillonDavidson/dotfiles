@@ -1,0 +1,78 @@
+#!/bin/bash
+
+mkvfile="01.mkv"
+
+echo "Processing: $mkvfile"
+
+# Run mkvinfo and process the output
+mkvinfo "$mkvfile" | awk '
+BEGIN {
+    track_id = ""
+    track_type = ""
+    language = "Unknown"
+    name = "Unknown"
+}
+
+/Track number:/ {
+    # If we have a complete track, print its details
+    if (track_id != "") {
+        adjusted_track_id = track_id - 1
+        print "Track ID " adjusted_track_id ": " track_type " - " name
+    }
+
+    # Reset variables for the new track
+    track_id = ""
+    track_type = ""
+    language = "Unknown"
+    name = "Unknown"
+
+    # Capture the track number (extract the first number from the line)
+    match($0, /Track number: ([0-9]+)/, arr)
+    track_id = arr[1]
+}
+
+/Track type: video/ {
+    track_type = "Video"
+}
+
+/Track type: audio/ {
+    track_type = "Audio"
+}
+
+/Track type: subtitles/ {
+    track_type = "Subtitle"
+}
+
+/\+ Language/ {
+    # Capture the language (extract the text after "Language: ")
+    language = substr($0, index($0, ": ") + 2)
+}
+
+/\+ Name:/ {
+    # Capture the track name (extract the text after "Name: ")
+    name = substr($0, index($0, ": ") + 2)
+}
+
+END {
+    # Print the last track if it exists
+    if (track_id != "") {
+        adjusted_track_id = track_id - 1
+        print "Track ID " adjusted_track_id ": " track_type " - " name
+    }
+}
+'
+
+echo ""
+
+echo "Which audio track are we keeping?"
+read audio_number
+
+echo "Which subtitle track are we keeping?"
+read subtitle_number
+
+for mkvfile in *.mkv; do
+    basename="${mkvfile%.mkv}"
+    mkvmerge -o "temp${basename}.mkv" --audio-tracks "${audio_number}" --subtitle-tracks "${subtitle_number}" "${mkvfile}"
+    rm "${mkvfile}"
+    mv "temp${basename}.mkv" "${basename}.mkv"
+done

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+for mkvfile in *.mkv; do
+    (
+        basename="${mkvfile%.mkv}"
+        echo "$basename"
+        subtitle_file=""
+
+        if [[ -f "$basename.ass" ]]; then
+            subtitle_file="$basename.ass"
+        elif [[ -f "$basename.srt" ]]; then
+            subtitle_file="$basename.srt"
+        fi
+        
+        if [[ -n "$subtitle_file" ]]; then
+            impd condense -i "$mkvfile" -s "$subtitle_file"
+        else
+            echo "No subtitle found for $basename"
+        fi
+    ) &
+done
+
+wait

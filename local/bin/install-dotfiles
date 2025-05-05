@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Define the repo URL and target directory
+REPO_URL="git@github.com:DillonDavidson/dotfiles.git"
+TEMP_DIR="$HOME/dots"
+
+# Clone the dotfiles repo
+git clone --depth 1 --recurse-submodules "$REPO_URL" "$TEMP_DIR"
+
+# Copy dotfiles safely (-r for recursive, -f to overwrite, -T to treat directories properly)
+cp -rfT "$TEMP_DIR" "$HOME"
+
+# Move .git to ~/.config/dotfiles to avoid cluttering $HOME
+mkdir -p "$HOME/.config/dotfiles"
+mv -f "$HOME/.git" "$HOME/.config/dotfiles/" 2>/dev/null
+
+# Remove temporary clone
+rm -rf "$TEMP_DIR"
+
+echo "✅ Dotfiles installed successfully!"

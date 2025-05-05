@@ -1,0 +1,24 @@
+# Basics
+set ignorecase true
+set icons true
+
+set sixel true
+
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+# Movement
+map gD cd /home/dillon/Downloads
+map gv cd /home/dillon/Videos
+map gs cd /home/dillon/Documents/Subtitles/kitsunekko-mirror
+map ga cd /home/dillon/.local/share/Anki2/Sentence\ Banking/collection.media
+
+# Functions
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$fx";;
+        *) for f in "$fx"; do xdg-open "$f"> /dev/null 2> /dev/null & done;;
+    esac
+}}

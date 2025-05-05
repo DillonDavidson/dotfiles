@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for video in *.mkv; do
+    filename="${video%.mkv}"
+    ffmpeg -i "$video" -q:a 0 -map a "$filename.mp3"
+done
+
+echo "Audio extraction completed for all MKV files."

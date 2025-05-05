@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Check if the user provided an extension
+if [ -z "$1" ]; then
+    echo "Usage: $0 <file_extension>"
+    echo "Example: $0 mkv"
+    exit 1
+fi
+
+# Set the file extension based on user input
+ext=$1
+count=1
+
+# Loop through files with the specified extension
+for file in *.$ext; do
+    if [ -e "$file" ]; then  # Make sure file exists
+        mv "$file" $(printf "%02d.%s" $count $ext)
+        ((count++))
+    fi
+done
+
+echo "Renamed files with extension .$ext"
