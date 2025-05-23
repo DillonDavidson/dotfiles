@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo -n "Enter a YouTube URL: "
+read url
+
+echo -e "\nDownloading video...\n"
+yt-dlp -q --no-warnings --ignore-no-formats-error --progress -P "~/Downloads/YouTube/" --preset-alias mkv -S "res:1080" --write-subs --sub-lang ja --sub-format vtt $url
+
+cd ~/Downloads/YouTube/
+
+for file in *.vtt; do
+    name="${file%.*}"
+    echo "name = $name"
+    ffmpeg -hide_banner -i "$file" "$name.srt" && rm "$file"
+done
+
+echo -e "\nReturning to previous directory...\n"
+cd -
+
+echo -e "\nFinished successfully."

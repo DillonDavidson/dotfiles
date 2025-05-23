@@ -28,4 +28,16 @@ map({ "n", "t" }, "<A-i>", function()
     })
 end, { desc = "terminal toggle floating term" })
 
+-- LSP toggle keymap
+local function toggle_lsp()
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+        vim.cmd("LspStart")
+    else
+        vim.cmd("LspStop")
+    end
+end
+
+map("n", "<leader>tl", toggle_lsp, { desc = "Toggle LSP on/off" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

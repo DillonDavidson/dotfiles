@@ -108,6 +108,7 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 # My Aliases
 alias vim="nvim"
 alias ytaudio="yt-dlp --extract-audio --format bestaudio/best"
+alias yt="cd -- /home/dillon/Downloads/YouTube"
 alias drop="cd -- /home/dillon/Dropbox"
 alias subs="cd -- /home/dillon/Documents/Subtitles"
 alias update-mirrors="sudo reflector --protocol https --download-timeout 60 --verbose --age 6 --latest 100 --fastest 10 --sort rate --country \"$(curl -Ls \"ifconfig.co/country\")\" --save /etc/pacman.d/mirrorlist"
@@ -162,3 +163,6 @@ export CUDACXX=/opt/cuda/bin/nvcc
 export PATH="$HOME/go/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13/site-packages:$PYTHONPATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
+
+# Fixing mpv issues with Pipewire backend
+export PIPEWIRE_LATENCY=128/48000
