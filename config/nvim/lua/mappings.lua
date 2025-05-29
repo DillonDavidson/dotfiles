@@ -28,16 +28,27 @@ map({ "n", "t" }, "<A-i>", function()
     })
 end, { desc = "terminal toggle floating term" })
 
--- LSP toggle keymap
-local function toggle_lsp()
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-        vim.cmd("LspStart")
+-- Initialize a flag to track the diagnostics state
+local diagnostics_active = true
+
+-- Define a function to toggle diagnostics
+local function toggle_diagnostics()
+    diagnostics_active = not diagnostics_active
+    if diagnostics_active then
+        vim.diagnostic.enable()
+        vim.notify("LSP diagnostics enabled", vim.log.levels.INFO)
     else
-        vim.cmd("LspStop")
+        vim.diagnostic.disable()
+        vim.notify("LSP diagnostics disabled", vim.log.levels.WARN)
     end
 end
 
-map("n", "<leader>tl", toggle_lsp, { desc = "Toggle LSP on/off" })
+-- Map the function to <leader>tl in normal mode
+vim.keymap.set(
+    "n",
+    "<leader>tl",
+    toggle_diagnostics,
+    { noremap = true, silent = true, desc = "Toggle LSP diagnostics" }
+)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
