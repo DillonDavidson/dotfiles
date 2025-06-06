@@ -7,7 +7,7 @@
     "modules-left": ["river/tags"],
     "modules-center": ["river/window"],
     "modules-right": ["pulseaudio", "clock", "custom/notification", "tray"],
-    "river/workspaces": {
+    "river/tags": {
       "tooltip": true,
       "disable-scroll": false,
       "on-click": "activate",

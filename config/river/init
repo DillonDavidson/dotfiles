@@ -12,8 +12,8 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &
-swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/unsplash.jpg -m fill &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/unsplash.jpg -m fill &
+swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/stawa.png -m fill &
 
 # My keybinds 
 riverctl map normal Super Q spawn foot
@@ -22,7 +22,7 @@ riverctl map normal Super W spawn librewolf
 riverctl map normal Super Space spawn fuzzel
 riverctl map normal Super A spawn anki
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
-riverctl map normal Super Y spawn "killall -SIGUSR1 waybar"
+riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn pcmanfm
 riverctl map normal Super O spawn "foot lf"
 riverctl map normal Super Z spawn "/usr/bin/code"
