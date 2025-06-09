@@ -4,6 +4,7 @@ local options = {
         c = { "clang-format" },
         cpp = { "clang-format" },
         go = { "gofumpt", "goimports-reviser", "golines" },
+        cuda = { "clang-format" },
         -- haskell = { "fourmolu", "stylish-haskell" },
         -- python = { "isort", "black" },
     },

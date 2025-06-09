@@ -12,7 +12,7 @@ set cleaner ctpvclear
 # Movement
 map gD cd /home/dillon/Downloads
 map gv cd /home/dillon/Videos
-map gs cd /home/dillon/Documents/Subtitles/kitsunekko-mirror
+map gs cd /home/dillon/Documents/Subtitles/subtitles
 map ga cd /home/dillon/.local/share/Anki2/Sentence\ Banking/collection.media
 
 # Functions

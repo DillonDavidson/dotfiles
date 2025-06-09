@@ -12,7 +12,7 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/unsplash.jpg -m fill &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/dog.jpg -m fill &
 swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/stawa.png -m fill &
 
 # My keybinds 
