@@ -12,8 +12,8 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/dog.jpg -m fill &
-swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/stawa.png -m fill &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/tadami-river.jpg -m fill &
+swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/dog.jpg -m fill &
 
 # My keybinds 
 riverctl map normal Super Q spawn foot
