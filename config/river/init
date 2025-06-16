@@ -192,4 +192,4 @@ riverctl default-layout rivertile
 
 # Set the default main-ratio to 0.5
 riverctl send-layout-cmd rivertile "main-ratio 0.5"
-rivertile -view-padding 4 -outer-padding 4 &
+rivertile -view-padding 2 -outer-padding 2 &

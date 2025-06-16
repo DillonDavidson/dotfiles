@@ -168,3 +168,10 @@ export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 
 # Fixing mpv issues with Pipewire backend
 export PIPEWIRE_LATENCY=128/48000
+
+# Nix stuff I HATE NIX
+# >>> Nix shell integration >>>
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+fi
+# <<< Nix shell integration <<<
