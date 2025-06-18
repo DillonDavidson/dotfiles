@@ -20,7 +20,7 @@ riverctl map normal Super Q spawn foot
 riverctl map normal Super T spawn freetube
 riverctl map normal Super W spawn librewolf
 riverctl map normal Super Space spawn fuzzel
-riverctl map normal Super A spawn anki
+riverctl map normal Super A spawn zsh -c "QT_QPA_PLATFORM=xcb anki"
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn pcmanfm

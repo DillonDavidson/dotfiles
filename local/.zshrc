@@ -126,7 +126,6 @@ alias alass="alass-cli"
 alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
 alias ll="ls -alF"
-alias cm="cmake --build build --parallel"
 
 # My Keybindings
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
