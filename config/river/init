@@ -12,8 +12,8 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/tadami-river.jpg -m fill &
-swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/dog.jpg -m fill &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/Japan/nagano.png -m fill &
+swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/Japan/fuji.png -m fill &
 
 # My keybinds 
 riverctl map normal Super Q spawn foot
@@ -25,7 +25,6 @@ riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn pcmanfm
 riverctl map normal Super O spawn "foot lf"
-riverctl map normal Super Z spawn "/usr/bin/code"
 
 # Vim bindings
 riverctl map normal Super H focus-view left
