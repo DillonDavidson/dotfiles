@@ -11,7 +11,8 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Start Up stuff
-swaync & waybar & fcitx5 &
+# swaync & waybar & fcitx5 &
+swaync & waybar &
 swaybg --output DP-1 -i ~/Pictures/Wallpapers/Japan/nagano.png -m fill &
 swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/Japan/fuji.png -m fill &
 
@@ -25,6 +26,7 @@ riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn pcmanfm
 riverctl map normal Super O spawn "foot lf"
+riverctl map normal Super R spawn $HOME/.config/river/init
 
 # Vim bindings
 riverctl map normal Super H focus-view left
@@ -191,4 +193,8 @@ riverctl default-layout rivertile
 
 # Set the default main-ratio to 0.5
 riverctl send-layout-cmd rivertile "main-ratio 0.5"
-rivertile -view-padding 2 -outer-padding 2 &
+rivertile -view-padding 1 -outer-padding 1 &
+
+# Sandbar stuff BTW
+# riverctl spawn "$HOME/.config/river/status"
+# riverctl spawn "$HOME/.config/river/bar"

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if the user provided an extension
+if [ -z "$1" ]; then
+    echo "Usage: $0 <tsv file>"
+    exit 1
+fi
+
+file_name=$1
+
+echo "File name: $file_name"
+
+sed -i 's/mp3/ogg/g'  "$file_name"
+sed -i 's/jpg/webp/g' "$file_name"
