@@ -24,7 +24,7 @@ riverctl map normal Super Space spawn fuzzel
 riverctl map normal Super A spawn zsh -c "QT_QPA_PLATFORM=xcb anki"
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
-riverctl map normal Super E spawn pcmanfm
+riverctl map normal Super E spawn thunar 
 riverctl map normal Super O spawn "foot lf"
 riverctl map normal Super R spawn $HOME/.config/river/init
 

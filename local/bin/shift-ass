@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+import os
+from datetime import datetime, timedelta
+
+def shift_time_ass(timestamp, delta_seconds):
+    """
+    Shift .ass timestamp string (H:MM:SS.cc) by delta_seconds.
+    """
+    # Note: centiseconds -> microseconds for datetime
+    time_obj = datetime.strptime(timestamp, "%H:%M:%S.%f")
+    new_time = time_obj + timedelta(seconds=delta_seconds)
+
+    # Clamp negative times to zero
+    if new_time.hour < 0:
+        new_time = datetime(1900, 1, 1, 0, 0, 0)
+
+    # Convert back to H:MM:SS.cc (keep only 2 decimal places)
+    return new_time.strftime("%-H:%M:%S.%f")[:-4]
+
+def shift_ass(file_path, output_path, delta_seconds):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        for line in lines:
+            if line.startswith("Dialogue:"):
+                parts = line.strip().split(",", 9)  # only split first 9 commas
+                if len(parts) >= 3:
+                    start = parts[1]
+                    end = parts[2]
+                    new_start = shift_time_ass(start, delta_seconds)
+                    new_end = shift_time_ass(end, delta_seconds)
+                    parts[1] = new_start
+                    parts[2] = new_end
+                    f.write(",".join(parts) + "\n")
+                else:
+                    # Unusual format, write as is
+                    f.write(line)
+            else:
+                f.write(line)
+
+delta_seconds = float(input("Enter the number of seconds to shift (e.g., -1 for back 1 second): "))
+
+for filename in os.listdir("."):
+    if filename.endswith(".ass"):
+        print(f"Shifting {filename}...")
+        shift_ass(filename, filename, delta_seconds)
+
+print("Done.")
