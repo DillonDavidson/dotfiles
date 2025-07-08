@@ -142,10 +142,10 @@ export LC_MESSAGES=en_US.UTF-8
 
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
-# export GTK_IM_MODULE=fcitx5
-# export QT_IM_MODULE=fcitx5
-export SDL_IM_MODULE=fcitx5
-export XMODIFIERS=@im=fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export SDL_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
