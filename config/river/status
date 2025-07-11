@@ -1,25 +1,7 @@
 #!/bin/env sh
 
-cpu() {
-	cpu="$(grep -o "^[^ ]*" /proc/loadavg)"
-}
-
-memory() {
-	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
-}
-
-disk() {
-	disk="$(df -h | awk 'NR==2{print $4}')"
-}
-
 datetime() {
 	datetime="$(date "+%a %d %b %I:%M %P")"
-}
-
-bat() {
-	read -r bat_status </sys/class/power_supply/BAT0/status
-	read -r bat_capacity </sys/class/power_supply/BAT0/capacity
-	bat="$bat_status $bat_capacity%"
 }
 
 vol() {

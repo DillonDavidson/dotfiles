@@ -13,4 +13,4 @@ while cat "$FIFO"; do :; done | sandbar \
 	-urgent-fg-color "#000000" \
 	-urgent-bg-color "#cc241d" \
 	-title-fg-color "#000000" \
-	-title-bg-color "#98971a"
+	-title-bg-color "#0000ff"
