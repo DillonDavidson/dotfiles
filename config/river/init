@@ -26,6 +26,7 @@ riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn thunar 
 riverctl map normal Super O spawn "foot lf"
 riverctl map normal Super R spawn $HOME/.config/river/init
+riverctl map normal Super I spawn "emacs --fullscreen"
 
 # Vim bindings
 riverctl map normal Super H focus-view left

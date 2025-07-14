@@ -33,6 +33,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
+(setq doom-font "JetBrainsMono NF-16")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -80,3 +81,9 @@
 
 (after! treemacs
   (setq treemacs-position 'right))
+
+(map! :n "C-n" #'treemacs)
+
+;; Keybindings: Tab and Ctrl+Tab to cycle tabs
+(map! :n "<tab>" #'centaur-tabs-forward)
+(map! :n "<backtab>" #'centaur-tabs-backward) ;; Shift+Tab
