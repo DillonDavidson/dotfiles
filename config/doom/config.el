@@ -82,8 +82,9 @@
 (after! treemacs
   (setq treemacs-position 'right))
 
-(map! :n "C-n" #'treemacs)
+(setq +latex-viewers '(pdf-tools))
 
-;; Keybindings: Tab and Ctrl+Tab to cycle tabs
+(map! :n ";" ':)
+(map! :n "C-n" #'treemacs)
 (map! :n "<tab>" #'centaur-tabs-forward)
-(map! :n "<backtab>" #'centaur-tabs-backward) ;; Shift+Tab
+(map! :n "<backtab>" #'centaur-tabs-backward)
