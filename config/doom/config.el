@@ -32,6 +32,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
+
+;;; Code:
+
 (setq doom-theme 'doom-one)
 (setq doom-font "JetBrainsMono NF-16")
 
@@ -79,12 +82,15 @@
 ;; -----------------------------------------------------------------------------
 ;; IDK I'm just throwing my stuff in here
 
+(global-whitespace-mode -1)
+
 (after! treemacs
   (setq treemacs-position 'right))
 
 (setq +latex-viewers '(pdf-tools))
 
-(map! :n ";" ':)
+(map! :n ";" nil)
+(map! :n ";" #'evil-ex)
 (map! :n "C-n" #'treemacs)
 (map! :n "<tab>" #'centaur-tabs-forward)
 (map! :n "<backtab>" #'centaur-tabs-backward)
