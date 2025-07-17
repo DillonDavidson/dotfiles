@@ -94,3 +94,5 @@
 (map! :n "C-n" #'treemacs)
 (map! :n "<tab>" #'centaur-tabs-forward)
 (map! :n "<backtab>" #'centaur-tabs-backward)
+(map! :desc "Kill this buffer" :leader "x" #'centaur-tabs--kill-this-buffer-dont-ask)
+(map! :desc "Format this buffer" :leader "z" #'lsp-format-buffer)
