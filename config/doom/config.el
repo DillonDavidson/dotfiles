@@ -35,7 +35,7 @@
 
 ;;; Code:
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
 (setq doom-font "JetBrainsMono NF-16")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -96,3 +96,8 @@
 (map! :n "<backtab>" #'centaur-tabs-backward)
 (map! :desc "Kill this buffer" :leader "x" #'centaur-tabs--kill-this-buffer-dont-ask)
 (map! :desc "Format this buffer" :leader "z" #'lsp-format-buffer)
+
+;; 1. Activate cuda-mode for .cu/.cuh
+(use-package! cuda-mode
+  :mode ("\\.cu\\'" . cuda-mode)
+  ("\\.cuh\\'" . cuda-mode))
