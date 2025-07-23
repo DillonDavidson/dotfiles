@@ -1,4 +1,6 @@
-require("nvchad.options")
+require "nvchad.options"
+
+-- add yours here!
 
 local o = vim.o
 
@@ -8,14 +10,16 @@ o.shiftwidth = 8
 o.tabstop = 8
 o.softtabstop = 8
 
-vim.filetype.add({
+vim.filetype.add {
     extension = {
         cu = "cuda",
         cuh = "cuda",
     },
-})
+}
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- o.cursorlineopt ='both' -- to enable cursorline!
-
--- set filetype for .CBL COBOL files.
--- vim.cmd([[ au BufRead,BufNewFile *.CBL set filetype=cobol ]])

@@ -1,19 +1,10 @@
-require("nvchad.mappings")
+require "nvchad.mappings"
 
 -- add yours here
 
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("n", "-", "<cmd>foldclose<CR>", { desc = "Close code fold" })
-map("n", "+", "<cmd>foldopen<CR>", { desc = "Open code fold" })
-map(
-    "n",
-    "<leader>z",
-    "<cmd>set foldmethod=indent<CR>",
-    { desc = "Set foldmethod to indent" }
-)
 map({ "n", "t" }, "<A-i>", function()
     require("nvchad.term").toggle({
         pos = "float",
@@ -41,7 +32,7 @@ local function toggle_diagnostics()
         vim.diagnostic.enable()
         vim.notify("LSP diagnostics enabled", vim.log.levels.INFO)
     else
-        vim.diagnostic.disable()
+        vim.diagnostic.enable(false)
         vim.notify("LSP diagnostics disabled", vim.log.levels.WARN)
     end
 end
@@ -53,5 +44,3 @@ vim.keymap.set(
     toggle_diagnostics,
     { noremap = true, silent = true, desc = "Toggle LSP diagnostics" }
 )
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
