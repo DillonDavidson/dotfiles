@@ -198,3 +198,8 @@ rivertile -view-padding 1 -outer-padding 1 &
 # Sandbar stuff BTW
 # riverctl spawn "$HOME/.config/river/status"
 # riverctl spawn "$HOME/.config/river/bar"
+
+# Screencasting stuff
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
