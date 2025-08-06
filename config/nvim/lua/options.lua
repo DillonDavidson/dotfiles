@@ -15,5 +15,3 @@ vim.filetype.add {
     cuh = "cuda",
   },
 }
-
-vim.opt.foldmethod = "indent"
