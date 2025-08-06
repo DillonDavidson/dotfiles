@@ -33,12 +33,12 @@ window#waybar {
 	color: #ffffff;
 }
 
-#mode { 
-	 background-color: #900000;
-	 color: #ffffff;
-     padding: 0px 5px 0px 5px;
-     border: 1px solid #2f343a;
-}
+/* #mode {  */
+/* 	 background-color: #900000; */
+/* 	 color: #ffffff; */
+/*      padding: 0px 5px 0px 5px; */
+/*      border: 1px solid #2f343a; */
+/* } */
 
 #window {
 	 color: #ffffff;

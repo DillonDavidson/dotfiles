@@ -106,7 +106,6 @@ setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 # My Aliases
-alias vim="nvim"
 alias ytaudio="yt-dlp --extract-audio --format bestaudio/best"
 alias yt="cd -- /home/dillon/Downloads/YouTube"
 alias down="cd -- /home/dillon/Downloads"
@@ -126,12 +125,13 @@ alias alass="alass-cli"
 alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
 alias ll="ls -alF"
+alias all-cm="cm ftogg && cm ftswebp"
 
 # My Keybindings
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
-bindkey -s '^n' '^uvim\n' # vim
+bindkey -s '^n' '^unvim\n' # nvim
 
 # My exports
 export EDITOR="nvim"
