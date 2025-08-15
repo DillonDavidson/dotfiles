@@ -12,13 +12,10 @@ map({ "n", "t" }, "<A-i>", function()
     id = "floatTerm",
     float_opts = {
       row = 0.35,
-      -- row = 1.0,
-      col = 0.05,
-      -- col = 1.0,
+      col = 0.35,
       width = 1.0,
-      -- height = 1.0,
-      height = 0.90,
-      -- height = 0.5,
+      height = 0.95,
+      border = "none",
     },
   }
 end, { desc = "Toggle floating term" })

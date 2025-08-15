@@ -4,7 +4,8 @@ local options = {
     c = { "clang-format" },
     cpp = { "clang-format" },
     cuda = { "clang-format" },
-    -- html = { "prettier" },
+    go = { "gofumpt" },
+    rust = { "rustfmt" },
   },
 
   format_on_save = {
