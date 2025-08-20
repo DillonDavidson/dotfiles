@@ -212,8 +212,8 @@ fi             # FILE
 *rakefile                   00;38;2;112;21;22
 *config.ru                  00;38;2;112;21;22
 *gemfile                    00;38;2;112;21;22
-*makefile                   00;38;2;109;128;134
-*cmakelists.txt             00;38;2;109;128;134
+*makefile                   00;38;2;109;128;134
+*cmakelists.txt             00;38;2;109;128;134
 *robots.txt             󰚩    00;38;2;109;128;134
 
 # file names (case-sensitive adaptations)
@@ -233,8 +233,8 @@ fi             # FILE
 *Docker-compose.yaml        00;38;2;81;154;186
 *Rakefile                   00;38;2;112;21;22
 *Gemfile                    00;38;2;112;21;22
-*Makefile                   00;38;2;109;128;134
-*CMakeLists.txt             00;38;2;109;128;134
+*Makefile                   00;38;2;109;128;134
+*CMakeLists.txt             00;38;2;109;128;134
 
 # file patterns (vim-devicons) (patterns not supported in lf)
 # .*jquery.*\.js$             00;38;2;227;117;187

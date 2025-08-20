@@ -176,3 +176,5 @@ fi
 # <<< Nix shell integration <<<
 
 export CMAKE_GENERATOR=Ninja
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
