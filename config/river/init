@@ -12,7 +12,7 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/pokemon.jpg -m fill &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/tokyo-night25.png -m fill &
 swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/stawa.png -m fill &
 
 # My keybinds 

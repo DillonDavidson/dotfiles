@@ -1,99 +1,67 @@
+/* https://github.com/stronk-dev/Tokyo-Night-Linux.git */
 {
-  "layer": "top",
-  "position": "top",
-  "height": 25,
+	"layer": "top",
+	"position": "top",
+	"height": 25,
+	"modules-left": ["river/tags", "river/window"],
+	"modules-center": [],
+	"modules-right": ["pulseaudio", "clock", "tray", "custom/notification"],
+	"river/tags": {
+		"disable-click": false,
+		"hide-vacant": false,
+		"num-tags": 9,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "壱",
+			"2": "弐",
+			"3": "参",
+			"4": "肆",
+			"5": "伍",
+			"6": "陸",
+			"7": "漆",
+			"8": "捌",
+			"9": "玖",
+			"10": "拾"
+		},
 
-  "modules-left": [
-    "river/tags",
-    // "river/mode",
-    "river/window"
-  ],
-  "modules-center": [],
-  "modules-right": [
-    // "temperature",
-    "pulseaudio",
-    "clock",
-    "tray",
-    "custom/notification"
-  ],
+		"num-tags": 9,
+		"tag-labels": ["壱","弐","参","肆","伍","陸","漆","捌","玖"],
+		"active-only": true
+	},
 
-  "river/tags": {
-    "disable-click": false,
-    "hide-vacant": false,
-    "num-tags": 9,
-    "format": "{icon}",
-    "format-icons": {
-	    "1": "壱",
-	    "2": "弐",
-	    "3": "参",
-	    "4": "肆",
-	    "5": "伍",
-	    "6": "陸",
-	    "7": "漆",
-	    "8": "捌",
-	    "9": "玖",
-	    "10": "拾"
-    }
-  },
+	"tray": {
+		"icon-size": 18,
+		"spacing": 15
+	},
 
-  "river/tags": {
-    "num-tags": 9,
-    "tag-labels": ["壱","弐","参","肆","伍","陸","漆","捌","玖"],
-    "active-only": true
-  },
+	"clock": {
+		"format": "{:%a %b %e  %R}",
+		"interval": 30
+	},
 
-  /*
-  "river/mode": {
-    "format": "{}"
-  },
-  */
+	"pulseaudio": {
+		"format": "{icon}  {volume}%  ",
+		"format-muted": "婢  Mute  ",
+		"interval": 60,
+		"format-icons": { "default": [""] },
+		"on-click": "pavucontrol"
+		// "format-bluetooth": "  {volume}%  ",
+	},
 
-  "river/window": {
-    "format": "{}"
-  },
-
-  "tray": {
-    "icon-size": 18,
-    "spacing": 15
-  },
-
-  "clock": {
-    "format": "{:%a %b %e  %R}",
-    "interval": 30
-  },
-
-  /*
-  "temperature": {
-    "thermal-zone": 0,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [""],
-    "interval": 30
-  },
-  */
-
-  "pulseaudio": {
-    "format": "{icon}  {volume}%  ",
-    "format-muted": "婢  Mute  ",
-    "interval": 60,
-    "format-icons": { "default": [""] },
-    "on-click": "pavucontrol"
-    // "format-bluetooth": "  {volume}%  ",
-  },
-
-    "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
-      "none": " ",
-      "dnd-notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
-      "dnd-none": " "
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-    "escape": true
-  }
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
+			"none": " ",
+			"dnd-notification": " <span foreground='red'><small><sup>⬤</sup></small></span> ",
+			"dnd-none": " "
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "sleep 0.1 && swaync-client -t -sw",
+		"on-click-right": "sleep 0.1 && swaync-client -d -sw",
+		"escape": true
+	}
 }
