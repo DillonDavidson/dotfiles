@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo rfkill unblock wifi
 sudo ip link set wlan0 down

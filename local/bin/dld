@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+current_dir_name=$(basename "$PWD" | tr -d ' ')
+output_dir="/home/$USER/Desktop/${current_dir_name}"
+
+echo "Basename = ${current_dir_name}"
+echo "Ouptut = ${output_dir}"
+
+if [[ -d "$output_dir" ]]; then
+	echo "Error: Directory '$DIR' already exists!"
+	exit 1
+fi
+
+# s2s -s 05.srt -v 05.mkv -o ~/Desktop/PENIS -n SousouNoFrierenEpisode5 --threads 12
+
+for video in *.mkv; do
+	basename="${video%.mkv}"
+	episode_name="${current_dir_name}Episode${basename}"
+	echo "Extracting from ${basename} as ${episode_name}"
+	echo "s2s -s ${basename}.srt -v ${basename}.mkv -o ${output_dir} -n ${episode_name} --threads 12"
+	s2s -s ${basename}.srt -v ${basename}.mkv -o ${output_dir} -n ${episode_name} --threads 12
+done

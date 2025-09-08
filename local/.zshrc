@@ -126,6 +126,7 @@ alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
 alias ll="ls -alF"
 alias all-cm="cm ftogg && cm ftswebp"
+alias tmux="tmux -2"
 
 # My Keybindings
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
@@ -178,3 +179,5 @@ fi
 export CMAKE_GENERATOR=Ninja
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
+
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

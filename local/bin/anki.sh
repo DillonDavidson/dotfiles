@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 QT_QPA_PLATFORM=xcb anki
 export PIPEWIRE_LATENCY=128/48000

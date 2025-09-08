@@ -194,6 +194,7 @@ fi             # FILE
 *.gitignore                 00;38;2;226;67;41
 *.gitattributes             00;38;2;226;67;41
 *.gitlab-ci.yml             00;38;2;226;67;41
+*.clang-format              
 *.bashrc                    00;38;2;137;224;81
 *.zshrc                 󰬇    00;38;2;137;224;81
 *.zshenv                󰬇    00;38;2;137;224;81

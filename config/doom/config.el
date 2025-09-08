@@ -35,7 +35,7 @@
 
 ;;; Code:
 
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-one)
 (setq doom-font "JetBrainsMono NF-16")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line

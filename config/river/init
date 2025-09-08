@@ -11,16 +11,16 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Start Up stuff
-swaync & waybar & fcitx5 &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/tokyo-night25.png -m fill &
-swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/stawa.png -m fill &
+swaync & waybar & fcitx5 & foot -s &
+swaybg --output DP-1 -i ~/Pictures/Wallpapers/anime-girl.jpg -m fill &
+swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/tokyo-night25.png -m fill &
 
 # My keybinds 
-riverctl map normal Super Q spawn foot
+riverctl map normal Super Q spawn footclient
 riverctl map normal Super T spawn freetube
 riverctl map normal Super W spawn librewolf
 riverctl map normal Super Space spawn fuzzel
-riverctl map normal Super A spawn zsh -c "env QT_QPA_PLATFORM=xcb anki"
+riverctl map normal Super A spawn anki
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
 riverctl map normal Super E spawn thunar 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if the user provided an extension
 if [ -z "$1" ]; then

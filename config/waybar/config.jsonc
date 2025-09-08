@@ -2,10 +2,10 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 25,
+	"height": 30,
 	"modules-left": ["river/tags", "river/window"],
 	"modules-center": [],
-	"modules-right": ["pulseaudio", "clock", "tray", "custom/notification"],
+	"modules-right": ["pulseaudio", "custom/japanese_clock", "tray", "custom/notification"],
 	"river/tags": {
 		"disable-click": false,
 		"hide-vacant": false,
@@ -33,11 +33,18 @@
 		"icon-size": 18,
 		"spacing": 15
 	},
+	
+	"custom/japanese_clock": {
+		"exec": "/home/dillon/.config/waybar/clock.sh",
+		"interval": 30,
+		"format": "{}"
+	},
 
-	"clock": {
+	/*"clock": {
+		"locale": "ja_JP.UTF-8",
 		"format": "{:%a %b %e  %R}",
 		"interval": 30
-	},
+	},*/
 
 	"pulseaudio": {
 		"format": "{icon}  {volume}%  ",

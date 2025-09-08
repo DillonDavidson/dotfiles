@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 for video in *.mkv; do
     filename="${video%.mkv}"
