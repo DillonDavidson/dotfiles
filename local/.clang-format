@@ -4,7 +4,7 @@ IndentWidth: 8
 TabWidth: 8
 UseTab: ForIndentation
 AccessModifierOffset: 0
-IndentAccessModifiers: true
+IndentAccessModifiers: false
 PackConstructorInitializers: Never
 BreakBeforeBraces: Allman
 InsertNewlineAtEOF: true
@@ -17,5 +17,5 @@ SpaceAroundPointerQualifiers: Before
 ReferenceAlignment: Left
 BreakConstructorInitializers: BeforeColon
 IndentCaseLabels: true
-NamespaceIndentation: All
+NamespaceIndentation: Inner
 BreakTemplateDeclarations: Yes

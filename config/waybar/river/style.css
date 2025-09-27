@@ -17,11 +17,11 @@ window#waybar {
     background: #1a1b26; 
 } 
 
-#workspaces {
+#tags {
     margin: 0 5px;
 }
 
-#workspaces button {
+#tags button {
     padding: 0px 11px 0px 11px; 
     color: #565f89;
     border: 3px solid rgba(9, 85, 225, 0);
@@ -29,21 +29,21 @@ window#waybar {
     min-width: 10px;
 }
 
-#workspaces button.visible {
+#tags button.visible {
     color: #a9b1d6;
 }
 
-#workspaces button.active {
+#tags button.focused {
     border-top: 3px solid #7aa2f7;
     border-bottom: 3px solid #7aa2f7;
 }
 
-#workspaces button.urgent {
+#tags button.urgent {
     background-color: #a96d1f;
     color: white;
 }
 
-#workspaces button:hover {
+#tags button:hover {
     box-shadow: inherit;
     border-color: #bb9af7;
     color: #bb9af7;
@@ -51,10 +51,10 @@ window#waybar {
 
 /* Repeat style here to ensure properties are overwritten as there's no !important and button:hover above resets the colour */
 
-#workspaces button.active {
+#tags button.focused {
     color: #7aa2f7;
 }
-#workspaces button.active:hover {
+#tags button.focused:hover {
     color: #bb9af7;
 }
 

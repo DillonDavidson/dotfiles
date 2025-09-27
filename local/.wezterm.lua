@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 config.enable_scroll_bar = false
 config.font_size = 16

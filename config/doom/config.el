@@ -4,9 +4,7 @@
 ;; sync' after modifying this file!
 
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
+;; Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets. It is optional. (setq user-full-name "John Doe"
 ;;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -36,7 +34,7 @@
 ;;; Code:
 
 (setq doom-theme 'doom-one)
-(setq doom-font "JetBrainsMono NF-16")
+(setq doom-font "JetBrainsMono NF-14")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -101,3 +99,7 @@
 (use-package! cuda-mode
   :mode ("\\.cu\\'" . cuda-mode)
   ("\\.cuh\\'" . cuda-mode))
+
+(setq +format-with-lsp nil)
+(after! format
+  (set-formatter! 'java-mode #'clang-format-buffer))
