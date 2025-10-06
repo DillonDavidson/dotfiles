@@ -219,6 +219,7 @@ fi             # FILE
 *gemfile                    00;38;2;112;21;22
 *makefile                   00;38;2;109;128;134
 *cmakelists.txt             00;38;2;109;128;134
+*meson.build                00;38;2;109;128;134
 *robots.txt             󰚩    00;38;2;109;128;134
 *.editorconfig          
 

@@ -11,7 +11,7 @@ if [[ -d "$output_dir" ]]; then
 	exit 1
 fi
 
-# s2s -s 05.srt -v 05.mkv -o ~/Desktop/PENIS -n SousouNoFrierenEpisode5 --threads 12
+# s2s -s 05.srt -v 05.mkv -o ~/Desktop/Stuff -n SousouNoFrierenEpisode5 --threads 12
 
 for video in *.mkv; do
 	basename="${video%.mkv}"
