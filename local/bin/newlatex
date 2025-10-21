@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if [ -z "$1" ]; then
-	echo "Usage: $0 <output-file.tex>"
-	exit 1
-fi
-
-cp ~/Documents/latex-templates/blank-article.tex "$1"

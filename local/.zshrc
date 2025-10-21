@@ -120,7 +120,6 @@ alias code="cd -- ~/Code"
 alias c="clear"
 alias ff="clear && fastfetch"
 alias ls="ls -hN --color=auto --group-directories-first"
-alias app="cd --~/Applications"
 alias alass="alass-cli"
 alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
@@ -128,8 +127,10 @@ alias ll="ls -alF"
 alias all-cm="cm ftogg && cm ftswebp"
 alias tmux="tmux -2"
 alias cd="z"
+alias time="/usr/bin/time"
 
 # My Keybindings
+# bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
@@ -184,3 +185,5 @@ export CXX=/usr/bin/clang++
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 eval "$(zoxide init zsh)"
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH

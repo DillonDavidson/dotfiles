@@ -5,7 +5,7 @@ read number
 
 for mkvfile in *.mkv; do
     basename="${mkvfile%.mkv}"
-    mkvmerge -o "penis${basename}.mkv" --audio-tracks "${number}" "${mkvfile}"
+    mkvmerge -o "temp${basename}.mkv" --audio-tracks "${number}" "${mkvfile}"
     rm "${mkvfile}"
     mv "temp${basename}.mkv" "${basename}.mkv"
 done

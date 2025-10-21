@@ -6,6 +6,7 @@ local options = {
     cuda = { "clang-format" },
     go = { "gofumpt" },
     rust = { "rustfmt" },
+    python = { "black" },
   },
 
   format_on_save = {
