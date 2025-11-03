@@ -116,8 +116,8 @@ alias update-mirrors="sudo reflector --protocol https --download-timeout 60 --ve
 alias anime="cd -- /home/dillon/Videos/"
 alias desk="cd -- ~/Desktop"
 alias vid="cd -- ~/Videos"
-alias code="cd -- ~/Code"
 alias c="clear"
+alias code="cd -- ~/Code"
 alias ff="clear && fastfetch"
 alias ls="ls -hN --color=auto --group-directories-first"
 alias alass="alass-cli"
@@ -125,7 +125,6 @@ alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
 alias ll="ls -alF"
 alias all-cm="cm ftogg && cm ftswebp"
-alias tmux="tmux -2"
 alias cd="z"
 alias time="/usr/bin/time"
 
@@ -186,4 +185,10 @@ export CXX=/usr/bin/clang++
 
 eval "$(zoxide init zsh)"
 
+
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# export lf_preview=true
+# export lf_previewer=ctpv
+# export lf_autoquit=true
+# export lf_anchorfind=true

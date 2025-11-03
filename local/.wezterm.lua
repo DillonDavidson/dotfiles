@@ -7,7 +7,7 @@ config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 config.enable_scroll_bar = false
 config.font_size = 16
-config.color_scheme = "Tokyo Night (Gogh)"
+config.color_scheme = "Kanagawa (Gogh)"
 
 wezterm.on("toggle-tabbar", function(window, _)
 	local overrides = window:get_config_overrides() or {}
@@ -26,10 +26,10 @@ config.keys = {
 }
 
 config.window_padding = {
-	left = "0cell",
-	right = "0cell",
-	top = "0cell",
-	bottom = "0cell",
+	left = "0.1cell",
+	right = "0.1cell",
+	top = "0.1cell",
+	bottom = "0.1cell",
 }
 
 return config

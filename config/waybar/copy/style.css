@@ -1,0 +1,78 @@
+#waybar {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+}
+
+#window {
+	padding: 0px 10px 0px 10px;
+}
+
+window#waybar {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
+    color: rgba(217, 216, 216, 1);
+    background: #1a1b26; 
+} 
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#workspaces button {
+    padding: 0px 11px 0px 11px; 
+    color: #565f89;
+    border: 3px solid rgba(9, 85, 225, 0);
+    border-radius: 5px;
+    min-width: 10px;
+}
+
+#workspaces button.visible {
+    color: #a9b1d6;
+}
+
+#workspaces button.active {
+    border-top: 3px solid #7aa2f7;
+    border-bottom: 3px solid #7aa2f7;
+}
+
+#workspaces button.urgent {
+    background-color: #a96d1f;
+    color: white;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    border-color: #bb9af7;
+    color: #bb9af7;
+}
+
+/* Repeat style here to ensure properties are overwritten as there's no !important and button:hover above resets the colour */
+
+#workspaces button.active {
+    color: #7aa2f7;
+}
+#workspaces button.active:hover {
+    color: #bb9af7;
+}
+
+#pulseaudio {
+    /* font-size: 26px; */
+}
+
+#custom-recorder {
+	font-size: 18px;
+	margin: 2px 7px 0px 7px;
+	color:#ee2e24;
+}
+
+#tray,
+#mode,
+#cpu,
+#memory,
+#pulseaudio {
+   padding: 0px 8px 0px 5px;
+   margin: 0px 5px 0px 5px;
+}

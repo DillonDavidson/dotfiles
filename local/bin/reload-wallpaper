@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pkill swaybg
+sleep 1
+
+# Note: This is incredibly janky
+`rg "swaybg" ~/.config/hypr/hyprland.conf | awk '{ print substr($0, 13, 99) }'`

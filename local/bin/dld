@@ -4,7 +4,7 @@ current_dir_name=$(basename "$PWD" | tr -d ' ')
 output_dir="/home/$USER/Desktop/${current_dir_name}"
 
 echo "Basename = ${current_dir_name}"
-echo "Ouptut = ${output_dir}"
+echo "Output = ${output_dir}"
 
 if [[ -d "$output_dir" ]]; then
 	echo "Error: Directory '$DIR' already exists!"
