@@ -15,9 +15,7 @@ zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
 zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
-
-# Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
-zstyle ':z4h:' prompt-at-bottom 'no'
+# Whether to move prompt to the bottom when zsh starts and on Ctrl+L. zstyle ':z4h:' prompt-at-bottom 'no'
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
@@ -95,15 +93,25 @@ compdef _directories md
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
-# Define aliases.
-alias tree='tree -a -I .git'
-
-# Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+
+# Aliases for the standard stuff
+# alias ls="ls -hN --color=auto --group-directories-first"
+alias cd="z"
+alias ls="lsd -hN --color=auto --group-directories-first"
+alias grep="grep -n"
+alias ll="ls -alF"
+alias gs="git status"
+alias gp="git push origin HEAD"
+alias gc="git commit"
+alias gbr='git branch | grep -v "master" | xargs git branch -D'
+alias gd="git diff -w"
+alias cat="bat"
+alias find="fd"
+alias tree='tree -a -I .git'
 
 # My Aliases
 alias ytaudio="yt-dlp --extract-audio --format bestaudio/best"
@@ -119,14 +127,11 @@ alias vid="cd -- ~/Videos"
 alias c="clear"
 alias code="cd -- ~/Code"
 alias ff="clear && fastfetch"
-alias ls="ls -hN --color=auto --group-directories-first"
 alias alass="alass-cli"
-alias grep="grep -n"
 alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
-alias ll="ls -alF"
 alias all-cm="cm ftogg && cm ftswebp"
-alias cd="z"
 alias time="/usr/bin/time"
+alias t="/usr/bin/time -f \"Max memory: %M KB\""
 
 # My Keybindings
 # bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
@@ -136,6 +141,10 @@ bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
 bindkey -s '^n' '^unvim\n' # nvim
 
 # My exports
+export CMAKE_GENERATOR=Ninja
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+
 export EDITOR="nvim"
 export TERMINAL="foot"
 export TERM="foot"
@@ -165,9 +174,8 @@ export CUDAToolkit_ROOT=/opt/cuda
 export CUDACXX=/opt/cuda/bin/nvcc
 export PATH="$HOME/go/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13/site-packages:$PYTHONPATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
-
-# Fixing mpv issues with Pipewire backend
 export PIPEWIRE_LATENCY=128/48000
 
 # Nix stuff I HATE NIX
@@ -177,18 +185,6 @@ if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
 fi
 # <<< Nix shell integration <<<
 
-export CMAKE_GENERATOR=Ninja
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 eval "$(zoxide init zsh)"
-
-
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
-# export lf_preview=true
-# export lf_previewer=ctpv
-# export lf_autoquit=true
-# export lf_anchorfind=true

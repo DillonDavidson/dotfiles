@@ -19,3 +19,4 @@ BreakConstructorInitializers: BeforeColon
 IndentCaseLabels: true
 NamespaceIndentation: Inner
 BreakTemplateDeclarations: Yes
+LineEnding: LF
