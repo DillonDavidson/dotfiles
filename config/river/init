@@ -12,8 +12,7 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 & foot -s &
-swaybg --output DP-1 -i ~/Pictures/Wallpapers/anime-girl.jpg -m fill &
-swaybg --output HDMI-A-2 -i ~/Pictures/Wallpapers/tokyo-night25.png -m fill &
+swaybg -i ~/Pictures/Wallpapers/fuji.jpg -m fill &
 
 # My keybinds 
 riverctl map normal Super Q spawn footclient

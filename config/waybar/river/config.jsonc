@@ -1,11 +1,10 @@
-/* https://github.com/stronk-dev/Tokyo-Night-Linux.git */
 {
 	"layer": "top",
 	"position": "top",
 	"height": 30,
 	"modules-left": ["river/tags", "river/window"],
 	"modules-center": [],
-	"modules-right": ["pulseaudio", "custom/japanese_clock", "tray", "custom/notification"],
+	"modules-right": ["battery", "pulseaudio", "custom/japanese_clock", "tray", "custom/notification"],
 	"river/tags": {
 		"disable-click": false,
 		"hide-vacant": false,
@@ -70,5 +69,14 @@
 		"on-click": "sleep 0.1 && swaync-client -t -sw",
 		"on-click-right": "sleep 0.1 && swaync-client -d -sw",
 		"escape": true
-	}
+	},
+
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity: >3}%",
+		"format-icons": ["", "", "", "", ""]
+	  }
 }
