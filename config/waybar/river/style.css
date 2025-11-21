@@ -1,41 +1,43 @@
 #waybar {
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 16px;
 }
 
 #window {
 	padding: 0px 10px 0px 10px;
+	color: #dcd7ba;
 }
 
 window#waybar {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    text-shadow: none;
-    transition-duration: 0s;
-    color: rgba(217, 216, 216, 1);
-    background: #1a1b26; 
+	box-shadow: none;
+	text-shadow: none;
+	transition-duration: 0s;
+	color: #dcd7ba;
+	background: #16161D;
 } 
 
 #tags {
-    margin: 0 5px;
+	margin: 0 5px;
+	color: #dcd7ba;
 }
 
 #tags button {
-    padding: 0px 11px 0px 11px; 
-    color: #565f89;
-    border: 3px solid rgba(9, 85, 225, 0);
-    border-radius: 5px;
-    min-width: 10px;
+	padding: 0px 11px 0px 11px; 
+	color: #dcd7ba;
+	border: none;
+	border-radius: 0px;
+	min-width: 10px;
+	background-color: transparent;
 }
 
 #tags button.visible {
-    color: #a9b1d6;
+	color: #dcd7ba;
+	background: rgba(255, 255, 255, 0.1);
 }
 
 #tags button.focused {
-    border-top: 3px solid #7aa2f7;
-    border-bottom: 3px solid #7aa2f7;
+	color: #dcd7ba;
+	background: rgba(255, 255, 255, 0.1);
 }
 
 #tags button.urgent {
@@ -44,22 +46,23 @@ window#waybar {
 }
 
 #tags button:hover {
-    box-shadow: inherit;
-    border-color: #bb9af7;
-    color: #bb9af7;
-}
-
-/* Repeat style here to ensure properties are overwritten as there's no !important and button:hover above resets the colour */
-
-#tags button.focused {
-    color: #7aa2f7;
-}
-#tags button.focused:hover {
-    color: #bb9af7;
+	box-shadow: inherit;
+	border: none;
+	border-radius: 0px;
+	background: rgba(255, 255, 255, 0.212);
+	color: #dcd7ba;
 }
 
 #pulseaudio {
-    /* font-size: 26px; */
+	color: #dcd7ba;
+}
+
+#pulseaudio.muted {
+	color: #E5E5E5;
+}
+
+#pulseaudio:hover {
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 #custom-recorder {
@@ -72,7 +75,9 @@ window#waybar {
 #mode,
 #cpu,
 #memory,
+#battery,
 #pulseaudio {
-   padding: 0px 8px 0px 5px;
-   margin: 0px 5px 0px 5px;
+	padding: 0px 8px 0px 5px;
+	margin: 0px 5px 0px 5px;
+	color: #dcd7ba;
 }
