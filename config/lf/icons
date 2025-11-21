@@ -194,7 +194,8 @@ fi             # FILE
 *.gitignore                 00;38;2;226;67;41
 *.gitattributes             00;38;2;226;67;41
 *.gitlab-ci.yml             00;38;2;226;67;41
-*.clang-format              
+*.clang-format              00;38;2;81;154;186
+*.clang-tidy                00;38;2;81;154;186
 *.bashrc                    00;38;2;137;224;81
 *.zshrc                 󰬇    00;38;2;137;224;81
 *.zshenv                󰬇    00;38;2;137;224;81
@@ -221,7 +222,7 @@ fi             # FILE
 *cmakelists.txt             00;38;2;109;128;134
 *meson.build                00;38;2;109;128;134
 *robots.txt             󰚩    00;38;2;109;128;134
-*.editorconfig          
+*.editorconfig              00;38;2;109;128;134
 
 # file names (case-sensitive adaptations)
 *Gruntfile.coffee           00;38;2;227;121;51

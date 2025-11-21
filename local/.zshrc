@@ -149,7 +149,8 @@ export EDITOR="nvim"
 export TERMINAL="foot"
 export TERM="foot"
 export LANG=ja_JP.UTF-8
-export LC_MESSAGES=en_US.UTF-8
+export LC_MESSAGES=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
 
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
