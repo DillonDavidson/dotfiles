@@ -14,7 +14,7 @@ map({ "n", "t" }, "<A-i>", function()
       row = 0.35,
       col = 0.35,
       width = 1.0,
-      height = 0.95,
+      height = 1.0,
       border = "none",
     },
   }

@@ -35,3 +35,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.o.laststatus = 3
+vim.o.cmdheight = 0
