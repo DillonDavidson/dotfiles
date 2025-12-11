@@ -103,7 +103,7 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 alias cd="z"
 alias ls="lsd -hN --color=auto --group-directories-first"
 alias grep="grep -n"
-alias ll="ls -alF"
+alias ll="ls -Alh"
 alias gs="git status"
 alias gp="git push origin HEAD"
 alias gc="git commit"

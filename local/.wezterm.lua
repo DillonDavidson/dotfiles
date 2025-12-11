@@ -26,9 +26,9 @@ config.keys = {
 }
 
 config.window_padding = {
-	left = "0.1cell",
-	right = "0.1cell",
-	top = "0.1cell",
+	left = "0.2cell",
+	right = "0.2cell",
+	top = "0.2cell",
 	bottom = "0.1cell",
 }
 

@@ -37,4 +37,4 @@ vim.schedule(function()
 end)
 
 vim.o.laststatus = 3
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
