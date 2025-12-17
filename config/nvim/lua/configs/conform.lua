@@ -7,6 +7,7 @@ local options = {
     go = { "gofumpt" },
     rust = { "rustup" },
     python = { "black" },
+    cs = { "csharpier" },
   },
 
   format_on_save = {
