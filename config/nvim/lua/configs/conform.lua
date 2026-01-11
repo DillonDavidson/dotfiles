@@ -1,13 +1,12 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    c = { "clang-format" },
-    cpp = { "clang-format" },
-    cuda = { "clang-format" },
+    c = { "clang_format" },
+    cpp = { "clang_format" },
+    cuda = { "clang_format" },
     go = { "gofumpt" },
     rust = { "rustup" },
     python = { "black" },
-    cs = { "csharpier" },
   },
 
   format_on_save = {
