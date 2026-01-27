@@ -36,8 +36,9 @@ window#waybar {
 }
 
 #tags button.focused {
+	border-top: 3px solid #9cabca;
+	border-bottom: 3px solid #9cabca;
 	color: #dcd7ba;
-	background: rgba(255, 255, 255, 0.1);
 }
 
 #tags button.urgent {
