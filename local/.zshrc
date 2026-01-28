@@ -102,8 +102,8 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 # alias ls="ls -hN --color=auto --group-directories-first"
 alias cd="z"
 alias ls="lsd -hN --color=auto --group-directories-first"
-alias grep="grep -n"
 alias ll="ls -Alh"
+alias grep="grep -n"
 alias gs="git status"
 alias gp="git push origin HEAD"
 alias gc="git commit"
@@ -132,12 +132,14 @@ alias 144hz="wlr-randr --output DP-1 --mode 1920x1080@143.852"
 alias all-cm="cm ftogg && cm ftswebp"
 alias time="/usr/bin/time"
 alias t="/usr/bin/time -f \"Max memory: %M KB\""
+alias nin="ninja -C build"
 
 # My Keybindings
 # bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
+bindkey -s '^l' '^uclear\n' # Ctrl + L to clear the terminal
 bindkey -s '^n' '^unvim\n' # nvim
 
 # My exports

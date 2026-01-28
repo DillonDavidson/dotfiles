@@ -5,7 +5,7 @@ local options = {
     cpp = { "clang_format" },
     cuda = { "clang_format" },
     go = { "gofumpt" },
-    rust = { "rustup" },
+    rust = { "rust_analyzer" },
     python = { "black" },
   },
 
