@@ -133,6 +133,7 @@ alias all-cm="cm ftogg && cm ftswebp"
 alias time="/usr/bin/time"
 alias t="/usr/bin/time -f \"Max memory: %M KB\""
 alias nin="ninja -C build"
+alias b="cd -"
 
 # My Keybindings
 # bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
