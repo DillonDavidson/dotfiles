@@ -13,3 +13,7 @@ indent_style = space
 [/home/dillon/.local/bin/**]
 tab_width = 4
 indent_style = space
+
+[*.hs]
+tab_width = 4
+indent_style = space

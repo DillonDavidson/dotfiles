@@ -171,6 +171,7 @@ export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 
 # Emacs LOL
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 export EMACSDIR="$HOME/.config/emacs"
 export DOOMDIR="$HOME/.config/doom"
 
