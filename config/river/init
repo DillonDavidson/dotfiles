@@ -12,12 +12,12 @@
 
 # Start Up stuff
 swaync & waybar & fcitx5 & foot -s &
-swaybg -i ~/Pictures/Wallpapers/fuji.jpg -m fill &
+swaybg -i ~/Pictures/Wallpapers/koi1.jpg -m fill &
 
 # My keybinds 
 riverctl map normal Super Q spawn footclient
 riverctl map normal Super T spawn freetube
-riverctl map normal Super W spawn librewolf
+riverctl map normal Super W spawn brave
 riverctl map normal Super Space spawn fuzzel
 riverctl map normal Super A spawn anki
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
