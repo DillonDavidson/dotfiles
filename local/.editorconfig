@@ -5,3 +5,15 @@ indent_style = tab
 tab_width = 8
 end_of_line = lf
 insert_final_newline = true
+
+[*.py]
+tab_width = 4
+indent_style = space
+
+[/home/dillon/.local/bin/**]
+tab_width = 4
+indent_style = space
+
+[*.hs]
+tab_width = 4
+indent_style = space
