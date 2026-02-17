@@ -15,6 +15,7 @@ map gs cd /home/dillon/Documents/Subtitles/subtitles
 map ga cd /home/dillon/.local/share/Anki2/Sentence\ Banking/collection.media
 map gp cd /run/user/1000/gvfs
 map gd cd /home/dillon/Desktop
+map gb cd /run/media/dillon/BDinc
 map <esc> quit
 
 # Functions

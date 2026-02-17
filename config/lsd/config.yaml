@@ -13,6 +13,7 @@ blocks:
   - permission
   - date
   - name
+  - size
 
 # == Color ==
 # This has various color options. (Will be expanded in the future.)
