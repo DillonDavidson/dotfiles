@@ -15,7 +15,9 @@ zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
 zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L. zstyle ':z4h:' prompt-at-bottom 'no'
+zstyle ':z4h:' prompt-at-bottom 'no'
 
 # Mark up shell's output with semantic information.
 zstyle ':z4h:' term-shell-integration 'yes'
@@ -135,13 +137,13 @@ alias time="/usr/bin/time"
 alias t="/usr/bin/time -f \"Max memory: %M KB\""
 alias nin="ninja -C build"
 alias b="cd -"
+alias make="bear -- make -j"
 
 # My Keybindings
 # bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
-bindkey -s '^l' '^uclear\n' # Ctrl + L to clear the terminal
 bindkey -s '^n' '^unvim\n' # nvim
 
 # My exports

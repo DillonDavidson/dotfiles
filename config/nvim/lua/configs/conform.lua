@@ -5,8 +5,8 @@ local options = {
     cpp = { "clang_format" },
     cuda = { "clang_format" },
     go = { "gofumpt" },
+    java = { "clang-format" },
     python = { "black" },
-    haskell = { "fourmolu" },
   },
 
   format_on_save = {

@@ -3,10 +3,11 @@ set ignorecase true
 set icons true
 set shell zsh
 
-set previewer ctpv
-set cleaner ctpvclear
-&ctpv -s $id
-&ctpvquit $id
+set previewer ~/Code/dtpv/build/dtpv
+#set previewer ctpv
+#set cleaner ctpvclear
+#&ctpv -s $id
+#&ctpvquit $id
 
 # Movement
 map gD cd /home/dillon/Downloads
