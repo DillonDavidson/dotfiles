@@ -10,13 +10,20 @@ set previewer ~/Code/dtpv/build/dtpv
 #&ctpvquit $id
 
 # Movement
-map gD cd /home/dillon/Downloads
+map gd cd /home/dillon/Downloads
 map gv cd /home/dillon/Videos
 map gs cd /home/dillon/Documents/Subtitles/subtitles
 map ga cd /home/dillon/.local/share/Anki2/Sentence\ Banking/collection.media
 map gp cd /run/user/1000/gvfs
-map gd cd /home/dillon/Desktop
+map ge cd /home/dillon/Desktop
 map gb cd /run/media/dillon/BDinc
+
+# Misc
+map m push %mkdir<space>
+map t push %touch<space>
+map am %rename-all mkv
+map aa %rename-all ass
+map as %rename-all srt
 map <esc> quit
 
 # Functions

@@ -18,5 +18,5 @@ for video in *.mkv; do
 	episode_name="${current_dir_name}Episode${basename}"
 	echo "Extracting from ${basename} as ${episode_name}"
 	echo "s2s -s \"${basename}.srt\" -v \"${basename}.mkv\" -o \"${output_dir}\" -n \"${episode_name}\" --threads 12"
-	s2s -s "${basename}.srt" -v "${basename}.mkv" -o "${output_dir}" -n "${episode_name}" --threads 12
+	s2s -subtitle "${basename}.srt" -video "${basename}.mkv" -output "${output_dir}" -name "${episode_name}" -threads 11
 done
