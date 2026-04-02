@@ -15,5 +15,5 @@ These are the configuration files and scripts I use in my computing
 * File Manager - [lf](https://github.com/gokcehan/lf) or [Thunar](https://docs.xfce.org/xfce/thunar/start)
 * Web Browser - [LibreWolf](https://librewolf.net/)
 * Video Player - [mpv](https://mpv.io/)
-* Preview images in terminal - [ctpv](https://github.com/NikitaIvanovV/ctpv) and [chafa](https://hpjansson.org/chafa/)
+* Preview images in terminal - [dtpv](https://github.com/DillonDavidson/dtpv) and [chafa](https://hpjansson.org/chafa/)
 * Text Editor - [Neovim](https://neovim.io/) ([NvChad](https://nvchad.com/)) or [Emacs](https://www.gnu.org/software/emacs/) ([Doom Emacs](https://github.com/doomemacs/doomemacs))
