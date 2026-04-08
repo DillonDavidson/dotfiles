@@ -12,8 +12,8 @@ classic: false
 blocks:
   - permission
   - date
-  - name
   - size
+  - name
 
 # == Color ==
 # This has various color options. (Will be expanded in the future.)

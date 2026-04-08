@@ -33,8 +33,9 @@
 
 ;;; Code:
 
-; (setq doom-theme 'doom-kanagawa)
-(setq doom-theme 'doom-one)
+(load! "themes/doom-kanagawa-wave-theme.el")
+(setq doom-theme 'doom-kanagawa-wave)
+;(setq doom-theme 'doom-one)
 (setq doom-font "JetBrainsMono NF-14")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line

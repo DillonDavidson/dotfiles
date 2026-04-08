@@ -1,0 +1,33 @@
+#!/bin/sh
+
+draw() {
+    kitten icat --stdin no --transfer-mode memory \
+        --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
+    exit 1  # tell lf not to cache
+}
+
+file="$1"
+w="$2"
+h="$3"
+x="$4"
+y="$5"
+
+case "$(file -Lb --mime-type "$file")" in
+    image/*)
+        draw "$file"
+        ;;
+    application/pdf)
+        # requires poppler (pdftoppm)
+        pdftoppm -f 1 -singlefile "$file" "/tmp/lf-preview"
+        draw "/tmp/lf-preview.ppm"
+        ;;
+    video/*)
+        # requires ffmpegthumbnailer
+        thumb="/tmp/lf-thumb-$(basename "$file").jpg"
+        [ ! -f "$thumb" ] && ffmpegthumbnailer -i "$file" -o "$thumb" -s 0 -q 5
+        draw "$thumb"
+        ;;
+    text/*)
+        bat --color=always --style=plain "$file" 2>/dev/null || cat "$file"
+        ;;
+esac

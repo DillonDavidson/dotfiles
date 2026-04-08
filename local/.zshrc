@@ -1,3 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+
+#
 # Personal Zsh configuration file. It is strongly recommended to keep all
 # shell customization and configuration (including exported environment
 # variables such as PATH) in this file or in files sourced from it.
@@ -6,102 +17,140 @@
 
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
 # You can manually run `z4h update` to update everything.
-zstyle ':z4h:' auto-update      'no'
+# zstyle ':z4h:' auto-update      'no'
 # Ask whether to auto-update this often; has no effect if auto-update is 'no'.
-zstyle ':z4h:' auto-update-days '28'
+# zstyle ':z4h:' auto-update-days '28'
 
 # Keyboard type: 'mac' or 'pc'.
-zstyle ':z4h:bindkey' keyboard  'pc'
+# zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
-zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+# zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L. zstyle ':z4h:' prompt-at-bottom 'no'
-zstyle ':z4h:' prompt-at-bottom 'no'
+# zstyle ':z4h:' prompt-at-bottom 'no'
 
 # Mark up shell's output with semantic information.
-zstyle ':z4h:' term-shell-integration 'yes'
+# zstyle ':z4h:' term-shell-integration 'yes'
 
 # Right-arrow key accepts one character ('partial-accept') from
 # command autosuggestions or the whole thing ('accept')?
-zstyle ':z4h:autosuggestions' forward-char 'accept'
+# zstyle ':z4h:autosuggestions' forward-char 'accept'
 
 # Recursively traverse directories when TAB-completing files.
-zstyle ':z4h:fzf-complete' recurse-dirs 'no'
+# zstyle ':z4h:fzf-complete' recurse-dirs 'no'
 
 # Enable direnv to automatically source .envrc files.
-zstyle ':z4h:direnv'         enable 'no'
+# zstyle ':z4h:direnv'         enable 'no'
 # Show "loading" and "unloading" notifications from direnv.
-zstyle ':z4h:direnv:success' notify 'yes'
+# zstyle ':z4h:direnv:success' notify 'yes'
 
 # Enable ('yes') or disable ('no') automatic teleportation of z4h over
 # SSH when connecting to these hosts.
-zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
-zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
+# zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
+# zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
 # The default value if none of the overrides above match the hostname.
-zstyle ':z4h:ssh:*'                   enable 'no'
+# zstyle ':z4h:ssh:*'                   enable 'no'
 
 # Send these files over to the remote host when connecting over SSH to the
 # enabled hosts.
-zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
+# zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 
 # Clone additional Git repositories from GitHub.
 #
 # This doesn't do anything apart from cloning the repository and keeping it
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
-z4h install ohmyzsh/ohmyzsh || return
+# z4h install ohmyzsh/ohmyzsh || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
 # is fully initialized. Everything that requires user interaction or can
 # perform network I/O must be done above. Everything else is best done below.
-z4h init || return
+# z4h init || return
 
 # Extend PATH.
-path=(~/bin $path)
+# path=(~/bin $path)
 
 # Export environment variables.
-export GPG_TTY=$TTY
+export GPG_TTY=$(tty)
 
 # Source additional local files if they exist.
-z4h source ~/.env.zsh
+# z4h source ~/.env.zsh
 
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
-z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
+# z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
+# z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 
 # Define key bindings.
-z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
-z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
-
-z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
-z4h bindkey redo Alt+/             # redo the last undone command line change
-
-z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
-z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
-z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
-z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
+# z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
+# z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
+#
+# z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
+# z4h bindkey redo Alt+/             # redo the last undone command line change
+#
+# z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
+# z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
+# z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
+# z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
 
 # Autoload functions.
 autoload -Uz zmv
-
-# Define functions and completions.
-function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
-compdef _directories md
-
-# Define named directories: ~w <=> Windows home directory on WSL.
-[[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+setopt autocd
+
+# History in cache directory:
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt hist_ignore_all_dups
+setopt share_history
+setopt inc_append_history
+
+# Basic auto/tab complete:
+# Enable autocompletion with an arrow-key driven interface.
+# To activate the menu, press tab twice.
+autoload -U compinit promptinit
+compinit
+promptinit
+
+# vi mode
+# https://dougblack.io/words/zsh-vi-mode.html
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+	case $KEYMAP in
+		vicmd) echo -ne '\e[1 q';;      # block
+		viins|main) echo -ne '\e[5 q';; # beam
+	esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+	zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+	echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('background_jobs' 'root_indicator' 'context' 'dir_writable' 'dir' 'vcs')
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('vi_mode' 'command_execution_time' 'status' 'todo' 'time' 'ssh')
+
+source <(fzf --zsh)
 
 # Aliases for the standard stuff
 # alias ls="ls -hN --color=auto --group-directories-first"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
 alias cd="z"
 alias ls="lsd -hN --color=auto --group-directories-first"
 alias ll="ls -Alh"
@@ -145,6 +194,8 @@ bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
 bindkey -s '^n' '^unvim\n' # nvim
+bindkey '^[[C' autosuggest-accept
+bindkey -M viins '^[[F' autosuggest-accept
 
 # My exports
 export CMAKE_GENERATOR=Ninja
@@ -196,3 +247,6 @@ fi
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 eval "$(zoxide init zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
