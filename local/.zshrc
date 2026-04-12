@@ -6,103 +6,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#
-# Personal Zsh configuration file. It is strongly recommended to keep all
-# shell customization and configuration (including exported environment
-# variables such as PATH) in this file or in files sourced from it.
-#
-# Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
-
-# Periodic auto-update on Zsh startup: 'ask' or 'no'.
-# You can manually run `z4h update` to update everything.
-# zstyle ':z4h:' auto-update      'no'
-# Ask whether to auto-update this often; has no effect if auto-update is 'no'.
-# zstyle ':z4h:' auto-update-days '28'
-
-# Keyboard type: 'mac' or 'pc'.
-# zstyle ':z4h:bindkey' keyboard  'pc'
-
-# Start tmux if not already in tmux.
-# zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
-
-# Whether to move prompt to the bottom when zsh starts and on Ctrl+L. zstyle ':z4h:' prompt-at-bottom 'no'
-# zstyle ':z4h:' prompt-at-bottom 'no'
-
-# Mark up shell's output with semantic information.
-# zstyle ':z4h:' term-shell-integration 'yes'
-
-# Right-arrow key accepts one character ('partial-accept') from
-# command autosuggestions or the whole thing ('accept')?
-# zstyle ':z4h:autosuggestions' forward-char 'accept'
-
-# Recursively traverse directories when TAB-completing files.
-# zstyle ':z4h:fzf-complete' recurse-dirs 'no'
-
-# Enable direnv to automatically source .envrc files.
-# zstyle ':z4h:direnv'         enable 'no'
-# Show "loading" and "unloading" notifications from direnv.
-# zstyle ':z4h:direnv:success' notify 'yes'
-
-# Enable ('yes') or disable ('no') automatic teleportation of z4h over
-# SSH when connecting to these hosts.
-# zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
-# zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
-# The default value if none of the overrides above match the hostname.
-# zstyle ':z4h:ssh:*'                   enable 'no'
-
-# Send these files over to the remote host when connecting over SSH to the
-# enabled hosts.
-# zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
-
-# Clone additional Git repositories from GitHub.
-#
-# This doesn't do anything apart from cloning the repository and keeping it
-# up-to-date. Cloned files can be used after `z4h init`. This is just an
-# example. If you don't plan to use Oh My Zsh, delete this line.
-# z4h install ohmyzsh/ohmyzsh || return
-
-# Install or update core components (fzf, zsh-autosuggestions, etc.) and
-# initialize Zsh. After this point console I/O is unavailable until Zsh
-# is fully initialized. Everything that requires user interaction or can
-# perform network I/O must be done above. Everything else is best done below.
-# z4h init || return
-
-# Extend PATH.
-# path=(~/bin $path)
-
-# Export environment variables.
-export GPG_TTY=$(tty)
-
-# Source additional local files if they exist.
-# z4h source ~/.env.zsh
-
-# Use additional Git repositories pulled in with `z4h install`.
-#
-# This is just an example that you should delete. It does nothing useful.
-# z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-# z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
-
-# Define key bindings.
-# z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
-# z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
-#
-# z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
-# z4h bindkey redo Alt+/             # redo the last undone command line change
-#
-# z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
-# z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
-# z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
-# z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
-
-# Autoload functions.
 autoload -Uz zmv
 
-
-# Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
-setopt glob_dots     # no special treatment for file names with a leading dot
-setopt no_auto_menu  # require an extra TAB press to open the completion menu
+setopt glob_dots
+setopt no_auto_menu
 setopt autocd
 
 # History in cache directory:
@@ -112,10 +22,9 @@ HISTFILE=~/.zsh_history
 setopt hist_ignore_all_dups
 setopt share_history
 setopt inc_append_history
+export GPG_TTY=$(tty)
 
-# Basic auto/tab complete:
-# Enable autocompletion with an arrow-key driven interface.
-# To activate the menu, press tab twice.
+# Basic auto/tab complete
 autoload -U compinit promptinit
 compinit
 promptinit
@@ -147,7 +56,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('vi_mode' 'command_execution_time' 'status' 
 source <(fzf --zsh)
 
 # Aliases for the standard stuff
-# alias ls="ls -hN --color=auto --group-directories-first"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
@@ -189,13 +97,18 @@ alias b="cd -"
 alias make="bear -- make -j"
 
 # My Keybindings
-# bindkey -s '^o' '^uyazi\n' # Ctrl + O to launch yazi
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
 bindkey -s '^f' '^ucd -- "$(dirname -- "$(fzf)")"\n' # Ctrl + F to search directory with fzf
 bindkey -s '^k' '^uclear\n' # Ctrl + K to clear the terminal
-bindkey -s '^n' '^unvim\n' # nvim
-bindkey '^[[C' autosuggest-accept
+bindkey -s '^n' '^unvim\n' # Ctrl + N for neovim
+
+# Vi bindings
 bindkey -M viins '^[[F' autosuggest-accept
+bindkey -M viins '^a' beginning-of-line   # Ctrl+A
+bindkey -M viins '^e' end-of-line         # Ctrl+E
+bindkey -M viins '^f' forward-char        # Ctrl+F
+bindkey -M viins '^b' backward-char       # Ctrl+B
+bindkey -M viins '^W' backward-kill-word
 
 # My exports
 export CMAKE_GENERATOR=Ninja
@@ -237,7 +150,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 export PIPEWIRE_LATENCY=128/48000
 
-# Nix stuff I HATE NIX
+# Nix stuff
 # >>> Nix shell integration >>>
 if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
   . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh

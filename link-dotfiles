@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the source and destination directories
 DOTFILES_DIR="$HOME/dotfiles/config"
 CONFIG_DIR="$HOME/.config"
 
 # List of directories to symlink
-DIRS=("foot" "waybar" "river" "fuzzel" "lf" "nvim" "doom" "hypr" "tmux" "yazi")
+DIRS=("foot" "waybar" "river" "fuzzel" "lf" "nvim" "hypr" "tmux")
 
 # Loop through each directory and create the symlink
 for dir in "${DIRS[@]}"; do
