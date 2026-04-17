@@ -29,6 +29,10 @@ autoload -U compinit promptinit
 compinit
 promptinit
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
+
 # vi mode
 # https://dougblack.io/words/zsh-vi-mode.html
 bindkey -v
@@ -50,10 +54,10 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('background_jobs' 'root_indicator' 'context' 'dir_writable' 'dir' 'vcs')
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('vi_mode' 'command_execution_time' 'status' 'todo' 'time' 'ssh')
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('background_jobs' 'root_indicator' 'context' 'dir_writable' 'dir' 'vcs')
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('vi_mode' 'command_execution_time' 'status' 'todo' 'time' 'ssh')
 
-source <(fzf --zsh)
+# source <(fzf --zsh)
 
 # Aliases for the standard stuff
 alias cp="cp -iv"
@@ -106,8 +110,6 @@ bindkey -s '^n' '^unvim\n' # Ctrl + N for neovim
 bindkey -M viins '^[[F' autosuggest-accept
 bindkey -M viins '^a' beginning-of-line   # Ctrl+A
 bindkey -M viins '^e' end-of-line         # Ctrl+E
-bindkey -M viins '^f' forward-char        # Ctrl+F
-bindkey -M viins '^b' backward-char       # Ctrl+B
 bindkey -M viins '^W' backward-kill-word
 
 # My exports
@@ -160,6 +162,11 @@ fi
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 eval "$(zoxide init zsh)"
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

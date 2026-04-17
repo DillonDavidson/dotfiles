@@ -1,0 +1,85 @@
+#waybar {
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 16px;
+}
+
+#window {
+	padding: 0px 10px 0px 10px;
+	color: #dcd7ba;
+}
+
+window#waybar {
+	box-shadow: none;
+	text-shadow: none;
+	transition-duration: 0s;
+	color: #dcd7ba;
+	background: #16161D;
+} 
+
+#workspaces {
+	margin: 0 5px;
+	color: #dcd7ba;
+}
+
+#workspaces button {
+	padding: 0px 11px 0px 11px; 
+	color: #dcd7ba;
+	border: none;
+	border-radius: 0px;
+	min-width: 10px;
+	background-color: transparent;
+}
+
+#workspaces button.visible {
+	color: #dcd7ba;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+	border-top: 3px solid #9cabca;
+	border-bottom: 3px solid #9cabca;
+	color: #dcd7ba;
+}
+
+#workspaces button.urgent {
+	background-color: #eb4d4b;
+	color: #dcd7ba;
+	border-radius: 0px;
+}
+
+#workspaces button:hover {
+	box-shadow: inherit;
+	border: none;
+	border-radius: 0px;
+	background: rgba(255, 255, 255, 0.212);
+	color: #dcd7ba;
+}
+
+#pulseaudio {
+	color: #dcd7ba;
+}
+
+#pulseaudio.muted {
+	color: #E5E5E5;
+}
+
+#pulseaudio:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+#custom-recorder {
+	font-size: 18px;
+	margin: 2px 7px 0px 7px;
+	color: #eb4d4b;
+}
+
+#tray,
+#mode,
+#cpu,
+#memory,
+#pulseaudio {
+	padding: 0px 8px 0px 5px;
+	margin: 0px 5px 0px 5px;
+	color: #dcd7ba;
+}
