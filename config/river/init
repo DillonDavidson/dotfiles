@@ -11,21 +11,22 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Start Up stuff
-swaync & waybar & fcitx5 & foot -s &
-swaybg -i ~/Pictures/Wallpapers/koi1.jpg -m fill &
+swaync & waybar & fcitx5 & foot -s & wl-paste --watch cliphist store &
+swaybg -o DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &
+swaybg -o HDMI-A-2 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &
+
+wlr-randr --output DP-1 --mode 1920x1080@144Hz
 
 # My keybinds 
 riverctl map normal Super Q spawn footclient
-riverctl map normal Super T spawn freetube
 riverctl map normal Super W spawn brave
 riverctl map normal Super Space spawn fuzzel
 riverctl map normal Super A spawn anki
 riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - |wl-copy"
 riverctl map normal Super Y spawn "pkill -USR1 waybar"
-riverctl map normal Super E spawn thunar 
-riverctl map normal Super O spawn "foot lf"
+riverctl map normal Super E spawn pcmanfm
+riverctl map normal Super V spawn 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
 riverctl map normal Super R spawn $HOME/.config/river/init
-riverctl map normal Super I spawn "emacs --fullscreen"
 
 # Vim bindings
 riverctl map normal Super H focus-view left
@@ -98,7 +99,6 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
-
 for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
@@ -175,6 +175,7 @@ done
 riverctl background-color 0x002b36
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
+riverctl border-width 0
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
