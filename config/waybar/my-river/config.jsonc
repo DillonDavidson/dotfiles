@@ -3,10 +3,10 @@
 	"layer": "top",
 	"position": "top",
 	"height": 30,
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-left": ["river/tags", "river/window"],
 	"modules-center": [],
 	"modules-right": ["pulseaudio", "custom/japanese_clock", "tray", "custom/notification"],
-	"hyprland/workspaces": {
+	"river/tags": {
 		"persistent-workspaces": {
 			"*": [1,2,3,4,5,6,7,8,9]
 		},
@@ -26,14 +26,12 @@
 			"9": "玖",
 			"10": "拾"
 		},
-
-		"num-tags": 9,
 		"tag-labels": ["壱","弐","参","肆","伍","陸","漆","捌","玖"],
 		"all-outputs": true,
 		"active-only": false 
 	},
 
-	"hyprland/window": {
+	"river/window": {
 		"separate-outputs": false
 	},
 
@@ -47,12 +45,6 @@
 		"interval": 30,
 		"format": "{}"
 	},
-
-	/*"clock": {
-		"locale": "ja_JP.UTF-8",
-		"format": "{:%a %b %e  %R}",
-		"interval": 30
-	},*/
 
 	"pulseaudio": {
 		"format": "{icon}  {volume}%  ",

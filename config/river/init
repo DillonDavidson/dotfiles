@@ -15,7 +15,7 @@ swaync & waybar & fcitx5 & foot -s & wl-paste --watch cliphist store &
 swaybg -o DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &
 swaybg -o HDMI-A-2 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &
 
-wlr-randr --output DP-1 --mode 1920x1080@144Hz
+wlr-randr --output DP-1 --mode 1920x1080@144 &
 
 # My keybinds 
 riverctl map normal Super Q spawn footclient
