@@ -1,26 +1,20 @@
 #!/usr/bin/env bash
 
-# Define the source and destination directories
 DOTFILES_DIR="$HOME/dotfiles/config"
 CONFIG_DIR="$HOME/.config"
+DIRS=("foot" "fuzzel" "hypr" "lf" "lsd" "nvim" "river" "tmux" "waybar")
 
-# List of directories to symlink
-DIRS=("foot" "waybar" "river" "fuzzel" "lf" "nvim" "hypr" "tmux")
-
-# Loop through each directory and create the symlink
 for dir in "${DIRS[@]}"; do
-    SRC="$DOTFILES_DIR/$dir"
-    DEST="$CONFIG_DIR/$dir"
+	SRC="$DOTFILES_DIR/$dir"
+	DEST="$CONFIG_DIR/$dir"
 
-    # Remove existing symlink or directory if it exists
-    if [ -L "$DEST" ] || [ -d "$DEST" ]; then
-        echo "Removing existing $DEST..."
-        rm -rf "$DEST"
-    fi
+	if [ -L "$DEST" ] || [ -d "$DEST" ]; then
+		echo "Removing existing $DEST..."
+		rm -rf "$DEST"
+	fi
 
-    # Create the symlink
-    echo "Linking $SRC -> $DEST"
-    ln -s "$SRC" "$DEST"
+	echo "Linking $SRC -> $DEST"
+	ln -s "$SRC" "$DEST"
 done
 
-echo "✅ All dotfiles have been symlinked!"
+echo "All dotfiles have been symlinked!"
