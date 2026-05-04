@@ -1,21 +1,7 @@
-BasedOnStyle: Microsoft
 IndentWidth: 8
 TabWidth: 8
 UseTab: ForIndentation
-AccessModifierOffset: 0
-IndentAccessModifiers: false
-PackConstructorInitializers: Never
-BreakBeforeBraces: Allman
-InsertNewlineAtEOF: true
-KeepEmptyLines:
-  AtEndOfFile: false
-  AtStartOfBlock: false
-  AtStartOfFile: false
-PointerAlignment: Left
-SpaceAroundPointerQualifiers: Before
-ReferenceAlignment: Left
-BreakConstructorInitializers: BeforeColon
-IndentCaseLabels: true
-NamespaceIndentation: Inner
-BreakTemplateDeclarations: Yes
-LineEnding: LF
+BreakBeforeBraces: Linux
+ColumnLimit: 120
+InsertBraces: True
+AllowShortFunctionsOnASingleLine: None
