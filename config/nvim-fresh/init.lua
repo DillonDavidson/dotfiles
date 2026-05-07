@@ -80,36 +80,10 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
 	{ "NMAC427/guess-indent.nvim", opts = {} },
 
-	-- Alternatively, use `config = function() ... end` for full control over the configuration.
-	-- If you prefer to call `setup` explicitly, use:
-	--    {
-	--        'lewis6991/gitsigns.nvim',
-	--        config = function()
-	--            require('gitsigns').setup({
-	--                -- Your gitsigns configuration here
-	--            })
-	--        end,
-	--    }
-	--
-	-- Here is a more advanced example where we pass configuration
-	-- options to `gitsigns.nvim`.
-	--
-	-- See `:help gitsigns` to understand what the configuration keys do
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		---@module 'gitsigns'
@@ -335,22 +309,22 @@ require("lazy").setup({
 					--
 					-- In this case, we create a function that lets us more easily define mappings specific
 					-- for LSP related items. It sets the mode, buffer and description for us each time.
-					local map = function(keys, func, desc, mode)
+					local lsp_map = function(keys, func, desc, mode)
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+					lsp_map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+					lsp_map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
-					map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					lsp_map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 				end,
 			})
 
@@ -361,16 +335,9 @@ require("lazy").setup({
 			local servers = {
 				clangd = {},
 				gopls = {},
-				rust_analyzer = {},
+				-- rust_analyzer = {},
 				jdtls = {},
-
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
-
-				stylua = {}, -- Used to format Lua code
+				stylua = {},
 
 				-- Special Lua Config, as recommended by neovim help docs
 				lua_ls = {
@@ -479,6 +446,7 @@ require("lazy").setup({
 				java = { "clang_format" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
+				cuda = { "clang_format" },
 				go = { "gofumpt" },
 				python = { "black" },
 			},
@@ -542,21 +510,17 @@ require("lazy").setup({
 				-- <c-k>: Toggle signature help
 				--
 				-- See :h blink-cmp-config-keymap for defining your own keymap
-				preset = "default",
+				preset = "enter",
 
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			},
 
 			appearance = {
-				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-				-- Adjusts spacing to ensure icons are aligned
 				nerd_font_variant = "mono",
 			},
 
 			completion = {
-				-- By default, you may press `<c-space>` to show the documentation.
-				-- Optionally, set `auto_show = true` to show the documentation after a delay.
 				documentation = { auto_show = false, auto_show_delay_ms = 500 },
 			},
 
@@ -566,38 +530,27 @@ require("lazy").setup({
 
 			snippets = { preset = "luasnip" },
 
-			-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-			-- which automatically downloads a prebuilt binary when enabled.
-			--
-			-- By default, we use the Lua implementation instead, but you may enable
-			-- the rust implementation via `'prefer_rust_with_warning'`
-			--
-			-- See :h blink-cmp-config-fuzzy for more information
 			fuzzy = { implementation = "lua" },
 
-			-- Shows a signature help window while you type arguments for a function
 			signature = { enabled = true },
 		},
 	},
 
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+	{
 		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
+		priority = 1000,
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
 			require("tokyonight").setup({
 				styles = {
-					comments = { italic = false }, -- Disable italics in comments
+					comments = { italic = false },
+					keywords = { italic = false },
+					functions = { italic = false },
+					variables = { italic = false },
 				},
 			})
 
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+			-- also 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 			vim.cmd.colorscheme("tokyonight-night")
 		end,
 	},
@@ -623,19 +576,12 @@ require("lazy").setup({
 			--  - yiiq - [Y]ank [I]nside [I]+1 [Q]uote
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({
-				-- NOTE: Avoid conflicts with the built-in incremental selection mappings on Neovim>=0.12 (see `:help treesitter-incremental-selection`)
 				mappings = {
 					around_next = "aa",
 					inside_next = "ii",
 				},
 				n_lines = 500,
 			})
-
-			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
-			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-			-- - sd'   - [S]urround [D]elete [']quotes
-			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
 		end,
 	},
@@ -781,13 +727,13 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	---@module "ibl"
+	-- 	---@type ibl.config
+	-- 	opts = {},
+	-- },
 }, { ---@diagnostic disable-line: missing-fields
 	ui = {
 		icons = {},
@@ -796,59 +742,5 @@ require("lazy").setup({
 
 vim.opt.termguicolors = true
 require("bufferline").setup({})
-require("ibl").setup()
-
-vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
-vim.keymap.set("n", "<leader>z", "<cmd>set foldmethod=indent<CR>", { desc = "Set foldmethod to indent" })
-local Terminal = require("toggleterm.terminal").Terminal
-local float_term = Terminal:new({
-	direction = "float",
-	float_opts = {
-		border = "none",
-		width = function()
-			return math.floor(vim.o.columns * 1.0)
-		end,
-		height = function()
-			return math.floor(vim.o.lines * 1.0)
-		end,
-		row = function()
-			return math.floor(vim.o.lines * 0.35)
-		end,
-		col = function()
-			return math.floor(vim.o.columns * 0.35)
-		end,
-	},
-	hidden = true, -- keeps it persistent across toggles
-})
-
-vim.keymap.set({ "n", "t" }, "<A-i>", function()
-	float_term:toggle()
-end, { desc = "Toggle floating term" })
-
--- Initialize a flag to track the diagnostics state
-local diagnostics_active = true
-
--- Define a function to toggle diagnostics
-local function toggle_diagnostics()
-	diagnostics_active = not diagnostics_active
-	if diagnostics_active then
-		vim.diagnostic.enable()
-		vim.notify("LSP diagnostics enabled", vim.log.levels.INFO)
-	else
-		vim.diagnostic.enable(false)
-		vim.notify("LSP diagnostics disabled", vim.log.levels.WARN)
-	end
-end
-
--- Map the function to <leader>tl in normal mode
-vim.keymap.set(
-	"n",
-	"<leader>tl",
-	toggle_diagnostics,
-	{ noremap = true, silent = true, desc = "[T]oggle [L]SP diagnostics" }
-)
-vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
-
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
-vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
+-- require("ibl").setup()
+require("mappings")
