@@ -1,3 +1,0 @@
-#!/bin/bash
-
-sudo openfortivpn secure.unlv.edu:443 -u davidd11 --saml-login
