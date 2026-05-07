@@ -33,6 +33,9 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.zsh
 
+autoload -U select-word-style
+select-word-style bash
+
 # vi mode
 # https://dougblack.io/words/zsh-vi-mode.html
 bindkey -v
@@ -111,7 +114,7 @@ bindkey -s '^n' '^unvim\n' # Ctrl + N for neovim
 bindkey -M viins '^[[F' autosuggest-accept
 bindkey -M viins '^a' beginning-of-line   # Ctrl+A
 bindkey -M viins '^e' end-of-line         # Ctrl+E
-bindkey -M viins '^W' backward-kill-word
+# bindkey -M viins '^W' backward-kill-word
 
 # My exports
 export CMAKE_GENERATOR=Ninja
@@ -152,6 +155,9 @@ export PYTHONPATH=/usr/lib/python3.13/site-packages:$PYTHONPATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 export PIPEWIRE_LATENCY=128/48000
+export LDFLAGS="-fuse-ld=mold"
+export CFLAGS="-fuse-ld=mold"
+export CXXFLAGS="-fuse-ld=mold"
 
 # Nix stuff
 # >>> Nix shell integration >>>
