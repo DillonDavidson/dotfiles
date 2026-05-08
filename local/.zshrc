@@ -102,7 +102,6 @@ alias t="/usr/bin/time -f \"Max memory: %M KB\""
 alias nin="ninja -C build"
 alias b="cd -"
 alias make="bear -- make -j"
-alias nvim-fresh='NVIM_APPNAME=nvim-fresh nvim'
 
 # My Keybindings
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
