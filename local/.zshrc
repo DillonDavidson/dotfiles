@@ -154,9 +154,7 @@ export PYTHONPATH=/usr/lib/python3.13/site-packages:$PYTHONPATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 export PIPEWIRE_LATENCY=128/48000
-export LDFLAGS="-fuse-ld=mold"
-export CFLAGS="-fuse-ld=mold"
-export CXXFLAGS="-fuse-ld=mold"
+# export LDFLAGS="-fuse-ld=mold"
 
 # Nix stuff
 # >>> Nix shell integration >>>

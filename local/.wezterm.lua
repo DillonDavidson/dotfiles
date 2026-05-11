@@ -7,7 +7,8 @@ config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 config.enable_scroll_bar = false
 config.font_size = 16
-config.color_scheme = "Kanagawa (Gogh)"
+config.color_scheme = "Tokyo Night Storm (Gogh)"
+wezterm.font("JetBrainsMono Nerd Font Mono")
 
 wezterm.on("toggle-tabbar", function(window, _)
 	local overrides = window:get_config_overrides() or {}

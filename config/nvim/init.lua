@@ -24,7 +24,7 @@ do
 	vim.o.list = false
 	vim.o.inccommand = "split"
 	vim.o.cursorline = false
-	vim.o.scrolloff = 5
+	vim.o.scrolloff = 0
 	vim.o.confirm = true
 
 	-- Clear highlights on search when pressing <Esc> in normal mode
@@ -190,14 +190,20 @@ do
 	---@diagnostic disable-next-line: missing-fields
 	require("tokyonight").setup({
 		styles = {
-			comments = { italic = false }, -- Disable italics in comments
+			comments = { italic = false },
+	     keywords = { italic = false},
 		},
 	})
 
 	-- Load the colorscheme here.
 	-- Like many other themes, this one has different styles, and you could load
 	-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-	vim.cmd.colorscheme("tokyonight-night")
+	vim.cmd.colorscheme("tokyonight-storm")
+
+  -- vim.pack.add({ gh("maxmx03/solarized.nvim") })
+  -- require("solarized").setup()
+  -- vim.o.background = "light"
+  -- vim.cmd.colorscheme("solarized")
 
 	-- Highlight todo, notes, etc in comments
 	vim.pack.add({ gh("folke/todo-comments.nvim") })
@@ -237,15 +243,15 @@ do
 	-- 	return "%2l:%-2v"
 	-- end
 
-	local statusline = {
-		" %t",
-		"%r",
-		"%m",
-		"%=",
-		"%{&filetype}",
-		" %2p%%",
-		" %3l:%-2c ",
-	}
+	-- local statusline = {
+	-- 	" %t",
+	-- 	"%r",
+	-- 	"%m",
+	-- 	"%=",
+	-- 	"%{&filetype}",
+	-- 	" %2p%%",
+	-- 	" %3l:%-2c ",
+	-- }
 
 	-- vim.o.statusline = table.concat(statusline, "")
 
@@ -434,7 +440,6 @@ do
 		jdtls = {},
 		zls = {},
 		rust_analyzer = {},
-		stylua = {},
 
 		-- Special Lua Config
 		lua_ls = {
@@ -467,12 +472,6 @@ do
 					},
 				})
 			end,
-			---@type lspconfig.settings.lua_ls
-			settings = {
-				Lua = {
-					format = { enable = false }, -- Disable formatting (formatting is done by stylua)
-				},
-			},
 		},
 	}
 
