@@ -67,6 +67,24 @@ do
 			vim.hl.on_yank()
 		end,
 	})
+
+  local winviews = {}
+
+vim.api.nvim_create_autocmd("BufLeave", {
+    callback = function()
+        winviews[vim.api.nvim_get_current_buf()] = vim.fn.winsaveview()
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        if winviews[buf] then
+            vim.fn.winrestview(winviews[buf])
+        end
+    end,
+})
+
 end
 
 -- ============================================================
