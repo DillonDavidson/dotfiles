@@ -3,15 +3,17 @@
 ------------------
 
 hl.monitor({ output = "DP-1", mode = "1920x1080@144", position = "0x0", scale = 1 })
-hl.monitor({ output = "HDMI-A-2", mode = "1920x1080@75", position = "1920x0", scale = 1 })
+-- hl.monitor({ output = "DP-2", mode = "1920x1080@144", position = "0x0", scale = 1})
+hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1920x0", scale = 1 })
+-- hl.monitor({ output = "HDMI-A-2", mode = "1920x1080@75", position = "1920x0", scale = 1 })
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
 -- Set programs that you use
-local terminal = "footclient"
-local fileManager = "pcmanfm"
+local terminal = "kitty"-- "footclient"
+local fileManager = "kitty -e lf"
 local menu = "fuzzel"
 
 -------------------
@@ -21,8 +23,8 @@ local menu = "fuzzel"
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &")
-	hl.exec_cmd("swaybg -o HDMI-A-2 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &")
-	hl.exec_cmd("fcitx5 & waybar & swaync & foot -s & wl-paste --watch cliphist store &")
+	hl.exec_cmd("swaybg -o HDMI-A-1 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &")
+	hl.exec_cmd("fcitx5 & waybar & swaync & wl-paste --watch cliphist store & udiskie --tray &") -- foot -s &
 end)
 
 -------------------------------
@@ -33,6 +35,9 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("NVD_BACKEND", "direct")
+hl.env("XDG_SESSION_TYPE", "wayland")
 
 -----------------------
 ----- PERMISSIONS -----

@@ -283,7 +283,7 @@ do
 		local filetype = "%y"
 		local line_col = "%l:%c"
 
-		return table.concat({ file, modified, align, filetype, " ", line_col })
+		return table.concat({ file, align, filetype, " ", line_col })
 	end
 
 	vim.o.statusline = statusline()
@@ -734,6 +734,37 @@ do
 
 	vim.keymap.set("n", "<leader>o", "<Cmd>Lf<CR>")
 	vim.keymap.set("n", "<C-n>", "<Cmd>Lf<CR>")
+
+  -- vim.pack.add({
+  --   "https://github.com/folke/snacks.nvim",
+  --   "https://github.com/mikavilpas/yazi.nvim",
+  -- })
+  --
+  -- vim.keymap.set("n", "<leader>-", function()
+  --   require("yazi").yazi()
+  -- end, { desc = "Open yazi file manager" })
+
+  local function pack_clean()
+    local unused = {}
+    for _, plugin in ipairs(vim.pack.get()) do
+      if not plugin.active then
+        table.insert(unused, plugin.spec.name)
+      end
+    end
+    if #unused == 0 then
+      print("No unused plugins.")
+      return
+    end
+    local choice = vim.fn.confirm(
+      "Remove " .. #unused .. " unused plugins?",
+      "&Yes\n&No", 2
+    )
+    if choice == 1 then
+      vim.pack.del(unused)
+    end
+  end
+
+  vim.keymap.set("n", "<leader>pc", pack_clean, { desc = "[P]ackage [C]leanup" })
 
 	require("mappings")
 end

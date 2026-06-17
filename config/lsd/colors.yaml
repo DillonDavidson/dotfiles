@@ -1,0 +1,31 @@
+# Tokyo Night Storm theme for LSD (LSDeluxe)
+# Based on the Tokyo Night Storm color palette by enkia
+# https://github.com/enkia/tokyo-night-vscode-theme
+
+user: 141       # magenta  #bb9af7
+group: 111      # blue     #7aa2f7
+permission:
+  read: 150     # green    #9ece6a
+  write: 215    # yellow   #e0af68
+  exec: 209     # orange   #ff9e64
+  exec-sticky: 141  # magenta  #bb9af7
+  no-access: 60     # comment  #565f89
+  octal: 103    # dim fg   #737aa2
+  acl: 103      # dim fg   #737aa2
+  context: 60   # comment  #565f89
+date:
+  hour-old: 150     # green    #9ece6a
+  day-old: 111      # blue     #7aa2f7
+  older: 103        # dim fg   #737aa2
+size:
+  none: 60      # comment  #565f89
+  small: 117    # cyan     #7dcfff
+  medium: 150   # green    #9ece6a
+  large: 209    # orange   #ff9e64
+inode:
+  valid: 111    # blue     #7aa2f7
+  invalid: 211  # red      #f7768e
+links:
+  valid: 150    # green    #9ece6a
+  invalid: 211  # red      #f7768e
+tree-edge: 60   # comment  #565f89

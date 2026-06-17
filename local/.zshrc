@@ -67,7 +67,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
 alias cd="z"
-alias ls="lsd -hN --color=auto --group-directories-first"
+alias ls="lsd -hN --group-directories-first"
 alias ll="ls -Alh"
 alias grep="grep -n"
 alias gs="git status"
@@ -102,6 +102,8 @@ alias t="/usr/bin/time -f \"Max memory: %M KB\""
 alias nin="ninja -C build"
 alias b="cd -"
 alias make="bear -- make -j"
+alias doc2pdf="libreoffice --headless --convert-to pdf"
+alias d2p="libreoffice --headless --convert-to pdf"
 
 # My Keybindings
 bindkey -s '^o' '^ulf\n' # Ctrl + O to launch LF
@@ -121,8 +123,8 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
 export EDITOR="nvim"
-export TERMINAL="foot"
-export TERM="foot"
+export TERMINAL="xterm-kitty"
+export TERM="xterm-kitty"
 export LANG=ja_JP.UTF-8
 export LC_MESSAGES=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
