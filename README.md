@@ -8,7 +8,7 @@ These are the configuration files and scripts I use in my computing
 
 * Distro - [Arch Linux](https://archlinux.org)
 * Shell - [zsh](https://www.zsh.org/)
-* Terminal - [Foot](https://codeberg.org/dnkl/foot) or [WezTerm](https://wezterm.org/)
+* Terminal - [Foot](https://codeberg.org/dnkl/foot) or [WezTerm](https://wezterm.org/) or [Kitty](https://sw.kovidgoyal.net/kitty/)
 * Window Manager - [River](https://isaacfreund.com/software/river/) or [Hyprland](https://hypr.land/) 
 * Status Bar - [Waybar](https://github.com/Alexays/Waybar)
 * Launcher - [Fuzzel](https://codeberg.org/dnkl/fuzzel)
