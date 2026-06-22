@@ -22,7 +22,8 @@ local menu = "fuzzel"
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &")
+	-- hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/5amtrain.jpg -m fill &")
+	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/street.png -m fill &")
 	hl.exec_cmd("swaybg -o HDMI-A-1 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &")
 	hl.exec_cmd("fcitx5 & waybar & swaync & wl-paste --watch cliphist store & udiskie --tray &") -- foot -s &
 end)

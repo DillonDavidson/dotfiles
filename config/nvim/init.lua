@@ -26,6 +26,7 @@ do
 	vim.o.cursorline = false
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
+	vim.opt.termguicolors = false
 
 	-- Clear highlights on search when pressing <Esc> in normal mode
 	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -202,26 +203,57 @@ do
 		},
 	})
 
-	-- [[ Colorscheme ]]
+	-- [[ NOTE: Colorscheme ]]
 
-	vim.pack.add({ gh("folke/tokyonight.nvim") })
-	---@diagnostic disable-next-line: missing-fields
-	require("tokyonight").setup({
-		styles = {
-			comments = { italic = false },
-	     keywords = { italic = false},
-		},
-	})
-
-	-- Load the colorscheme here.
-	-- Like many other themes, this one has different styles, and you could load
-	-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-	vim.cmd.colorscheme("tokyonight-storm")
+	-- vim.pack.add({ gh("folke/tokyonight.nvim") })
+	-- ---@diagnostic disable-next-line: missing-fields
+	-- require("tokyonight").setup({
+	-- 	styles = {
+	-- 		comments = { italic = false },
+	--      keywords = { italic = false},
+	-- 	},
+	-- })
+	--
+	-- -- Load the colorscheme here.
+	-- -- Like many other themes, this one has different styles, and you could load
+	-- -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+	-- vim.cmd.colorscheme("tokyonight-storm")
 
   -- vim.pack.add({ gh("maxmx03/solarized.nvim") })
   -- require("solarized").setup()
   -- vim.o.background = "light"
   -- vim.cmd.colorscheme("solarized")
+
+  vim.pack.add({ gh("rebelot/kanagawa.nvim") })
+  require('kanagawa').setup({
+      compile = false,             -- enable compiling the colorscheme
+      undercurl = true,            -- enable undercurls
+      commentStyle = { italic = false },
+      functionStyle = {},
+      keywordStyle = { italic = false },
+      statementStyle = { bold = true },
+      typeStyle = {},
+      transparent = false,         -- do not set background color
+      dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+      colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      },
+      overrides = function(colors) -- add/modify highlights
+          return {}
+      end,
+      theme = "wave",              -- Load "wave" theme
+      background = {               -- map the value of 'background' option to a theme
+          dark = "wave",           -- try "dragon" !
+          light = "lotus"
+      },
+  })
+
+  -- setup must be called before loading
+  vim.cmd("colorscheme kanagawa")
+
+	-- [[ NOTE: Colorscheme ]]
 
 	-- Highlight todo, notes, etc in comments
 	vim.pack.add({ gh("folke/todo-comments.nvim") })
@@ -765,6 +797,10 @@ do
   end
 
   vim.keymap.set("n", "<leader>pc", pack_clean, { desc = "[P]ackage [C]leanup" })
+
+  -- HERE --
+  -- vim.keymap.set('n', '<Tab>', ':bn<CR>')
+  -- vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
 
 	require("mappings")
 end
