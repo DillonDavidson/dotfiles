@@ -3,9 +3,11 @@ set ignorecase true
 set icons true
 set shell zsh
 
-# set previewer dtpv
-set previewer /home/dillon/.config/lf/previewer
-set cleaner /home/dillon/.config/lf/cleaner
+set previewer dtpv
+set cleaner dtpvclean
+
+# set previewer /home/dillon/.config/lf/previewer
+# set cleaner /home/dillon/.config/lf/cleaner
 
 # Movement
 map gd cd /home/dillon/Downloads

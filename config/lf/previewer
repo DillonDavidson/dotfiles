@@ -1,8 +1,7 @@
 #!/bin/sh
 
 draw() {
-    kitten icat --stdin no --transfer-mode memory \
-        --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
+    kitten icat --stdin no --transfer-mode memory --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
     exit 1  # tell lf not to cache
 }
 
@@ -23,7 +22,7 @@ case "$(file -Lb --mime-type "$file")" in
         ;;
     video/*)
         # requires ffmpegthumbnailer
-        thumb="/tmp/lf-thumb-$(basename "$file").jpg"
+        thumb="/tmp/lf-thumb-$(realpath "$file"  | sha256sum | cut -d' ' -f1).jpg"
         [ ! -f "$thumb" ] && ffmpegthumbnailer -i "$file" -o "$thumb" -s 0 -q 5
         draw "$thumb"
         ;;

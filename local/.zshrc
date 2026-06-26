@@ -123,7 +123,6 @@ export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
 export EDITOR="nvim"
-export TERMINAL="xterm-kitty"
 export TERM="xterm-kitty"
 export LANG=ja_JP.UTF-8
 export LC_MESSAGES=ja_JP.UTF-8
@@ -170,7 +169,7 @@ fi
 
 eval "$(zoxide init zsh)"
 
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'

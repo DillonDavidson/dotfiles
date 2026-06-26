@@ -27,6 +27,7 @@ do
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
 	vim.opt.termguicolors = false
+  vim.o.laststatus = 0
 
 	-- Clear highlights on search when pressing <Esc> in normal mode
 	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

@@ -17,11 +17,11 @@ window#waybar {
 	background: #1a1b26; 
 } 
 
-#tags {
+#workspaces {
 	margin: 0 5px;
 }
 
-#tags button {
+#workspaces button {
 	padding: 0px 11px 0px 11px; 
 	color: #565f89;
 	border: 3px solid rgba(9, 85, 225, 0);
@@ -29,30 +29,30 @@ window#waybar {
 	min-width: 10px;
 }
 
-#tags button.visible {
+#workspaces button.visible {
 	color: #a9b1d6;
 }
 
-#tags button.focused {
+#workspaces button.active {
 	border-top: 3px solid #7aa2f7;
 	border-bottom: 3px solid #7aa2f7;
 }
 
-#tags button.urgent {
+#workspaces button.urgent {
 	background-color: #a96d1f;
 	color: white;
 }
 
-#tags button:hover {
+#workspaces button:hover {
 	box-shadow: inherit;
 	border-color: #bb9af7;
 	color: #bb9af7;
 }
 
-#tags button.focused {
+#workspaces button.active {
 	color: #7aa2f7;
 }
-#tags button.focused:hover {
+#workspaces button.active:hover {
 	color: #bb9af7;
 }
 
