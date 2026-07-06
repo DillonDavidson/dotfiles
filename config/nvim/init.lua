@@ -26,8 +26,9 @@ do
 	vim.o.cursorline = false
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
-	vim.opt.termguicolors = false
+	vim.o.termguicolors = true
   vim.o.laststatus = 0
+  vim.o.cmdheight = 0
 
 	-- Clear highlights on search when pressing <Esc> in normal mode
 	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -397,14 +398,6 @@ do
 		end,
 	})
 
-	-- Override default behavior and theme when searching
-	vim.keymap.set("n", "<leader>/", function()
-		builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-			winblend = 10,
-			previewer = false,
-		}))
-	end, { desc = "[/] Fuzzily search in current buffer" })
-
 	-- It's also possible to pass additional configuration options.
 	vim.keymap.set("n", "<leader>s/", function()
 		builtin.live_grep({
@@ -744,13 +737,12 @@ do
 
 	require("toggleterm").setup()
 
-	vim.pack.add({
-		{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-		{ src = "https://github.com/akinsho/bufferline.nvim" },
-	})
-
-	vim.opt.termguicolors = true
-	require("bufferline").setup({})
+	-- vim.pack.add({
+	-- 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	-- 	{ src = "https://github.com/akinsho/bufferline.nvim" },
+	-- })
+	--
+	-- require("bufferline").setup({})
 
 	vim.pack.add({
 		{ src = "https://github.com/akinsho/toggleterm.nvim" },
@@ -800,8 +792,8 @@ do
   vim.keymap.set("n", "<leader>pc", pack_clean, { desc = "[P]ackage [C]leanup" })
 
   -- HERE --
-  -- vim.keymap.set('n', '<Tab>', ':bn<CR>')
-  -- vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
+  vim.keymap.set('n', '<Tab>', ':bn<CR>')
+  vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
 
 	require("mappings")
 end

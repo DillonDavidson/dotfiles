@@ -7,7 +7,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local float_term = Terminal:new({
 	direction = "float",
 	float_opts = {
-		border = "none",
+		border = "single",
 		width = function()
 			return math.floor(vim.o.columns * 1.0)
 		end,
@@ -43,8 +43,8 @@ end
 
 map("n", "<leader>tl", toggle_diagnostics, { noremap = true, silent = true, desc = "[T]oggle [L]SP diagnostics" })
 
-map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
-map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
+-- map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+-- map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
 -- Stuff I stole from NvChad
