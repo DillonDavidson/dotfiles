@@ -1,7 +1,22 @@
 local map = vim.keymap.set
 
+local indent_widths = {
+	zig = 4,
+}
+
+local function fold_by_indent()
+	local width = indent_widths[vim.bo.filetype]
+	if width then
+		vim.bo.shiftwidth = width
+		vim.bo.tabstop = width
+	end
+	vim.wo.foldmethod = "indent"
+	vim.cmd("normal! zM")
+end
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("n", "<leader>z", "<cmd>set foldmethod=indent<CR>", { desc = "Set foldmethod to indent" })
+map("n", "<leader>z", fold_by_indent, { desc = "Fold by indent" })
+-- map("n", "<leader>z", "<cmd>set foldmethod=indent<CR>", { desc = "Set foldmethod to indent" })
 
 local Terminal = require("toggleterm.terminal").Terminal
 local float_term = Terminal:new({

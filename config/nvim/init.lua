@@ -27,8 +27,8 @@ do
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
 	vim.o.termguicolors = true
-  vim.o.laststatus = 0
-  vim.o.cmdheight = 0
+	-- vim.o.laststatus = 0
+	vim.o.cmdheight = 0
 
 	-- Clear highlights on search when pressing <Esc> in normal mode
 	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -794,6 +794,10 @@ do
   -- HERE --
   vim.keymap.set('n', '<Tab>', ':bn<CR>')
   vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
+
+  vim.o.foldmethod = "expr"
+  vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  vim.o.foldlevel = 99  -- start with everything unfolded
 
 	require("mappings")
 end

@@ -100,6 +100,7 @@ alias all-cm="cm ftogg && cm ftswebp"
 alias time="/usr/bin/time"
 alias t="/usr/bin/time -f \"Max memory: %M KB\""
 alias nin="ninja -C build"
+alias n="ninja -C build"
 alias b="cd -"
 alias make="bear -- make -j"
 alias doc2pdf="libreoffice --headless --convert-to pdf"
@@ -156,7 +157,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 export PIPEWIRE_LATENCY=128/48000
 export MPD_HOST=/run/user/1000/mpd/socket
-# export LDFLAGS="-fuse-ld=mold"
+export LDFLAGS="-fuse-ld=mold"
 
 # Nix stuff
 # >>> Nix shell integration >>>
