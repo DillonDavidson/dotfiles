@@ -1,17 +1,15 @@
 #!/bin/sh
 
+draw() {
+    kitten icat --stdin no --transfer-mode memory --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
+    exit 1  # tell lf not to cache
+}
+
 file="$1"
 w="$2"
 h="$3"
 x="$4"
 y="$5"
-
-draw() {
-    # -p k forces kitty protocol, -g constraints dimensions
-    timg -p k -g "${w}x${h}" "$1" </dev/null >/dev/tty
-    # viu -w "$w" -h "$h" "$1" </dev/null >/dev/tty
-    exit 1  # tell lf not to cache
-}
 
 case "$(file -Lb --mime-type "$file")" in
     image/*)

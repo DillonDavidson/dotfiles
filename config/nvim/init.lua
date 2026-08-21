@@ -27,11 +27,13 @@ do
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
 	vim.o.termguicolors = true
-	-- vim.o.laststatus = 0
-	vim.o.cmdheight = 0
+	-- vim.o.laststatus = 0 -- disable this
+	vim.o.cmdheight = 0 -- disable this
+  -- vim.o.winbar = "%f"
+  -- vim.o.laststatus = 3
+  -- vim.o.statusline = "%f %m"
 
-	-- Clear highlights on search when pressing <Esc> in normal mode
-	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+	-- Clear highlights on search when pressing <Esc> in normal mode vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 	-- Diagnostic Config & Keymaps
 	vim.diagnostic.config({
@@ -216,10 +218,8 @@ do
 	-- 	},
 	-- })
 	--
-	-- -- Load the colorscheme here.
-	-- -- Like many other themes, this one has different styles, and you could load
-	-- -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-	-- vim.cmd.colorscheme("tokyonight-storm")
+	-- -- A few options: 'tokyonight-night', 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'
+	-- vim.cmd.colorscheme("tokyonight-night")
 
   -- vim.pack.add({ gh("maxmx03/solarized.nvim") })
   -- require("solarized").setup()
@@ -228,12 +228,13 @@ do
 
   vim.pack.add({ gh("rebelot/kanagawa.nvim") })
   require('kanagawa').setup({
-      compile = false,             -- enable compiling the colorscheme
+      compile = true,             -- enable compiling the colorscheme
       undercurl = true,            -- enable undercurls
       commentStyle = { italic = false },
       functionStyle = {},
       keywordStyle = { italic = false },
-      statementStyle = { bold = true },
+      statementStyle = { bold = false },
+      variablebuiltinStyle = { italic = false },
       typeStyle = {},
       transparent = false,         -- do not set background color
       dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
@@ -242,8 +243,11 @@ do
           palette = {},
           theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
       },
-      overrides = function(colors) -- add/modify highlights
-          return {}
+      overrides = function(colors)
+        return {
+          ["@variable.builtin"] = { italic = false },
+          ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
+        }
       end,
       theme = "wave",              -- Load "wave" theme
       background = {               -- map the value of 'background' option to a theme
@@ -286,7 +290,7 @@ do
 	-- - sr)'  - [S]urround [R]eplace [)] [']
 	require("mini.surround").setup()
 
-	-- Simple and easy statusline.
+	-- -- Simple and easy statusline.
 	-- local statusline = require("mini.statusline")
 	-- statusline.setup({ use_icons = vim.g.have_nerd_font })
 	--
@@ -482,8 +486,8 @@ do
 		clangd = {},
 		gopls = {},
 		jdtls = {},
-		zls = {},
-		rust_analyzer = {},
+		-- zls = {},
+		-- rust_analyzer = {},
 
 		-- Special Lua Config
 		lua_ls = {
@@ -741,7 +745,6 @@ do
 	-- 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	-- 	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	-- })
-	--
 	-- require("bufferline").setup({})
 
 	vim.pack.add({
@@ -765,7 +768,7 @@ do
   --   "https://github.com/mikavilpas/yazi.nvim",
   -- })
   --
-  -- vim.keymap.set("n", "<leader>-", function()
+  -- vim.keymap.set("n", "<C-n>", function()
   --   require("yazi").yazi()
   -- end, { desc = "Open yazi file manager" })
 

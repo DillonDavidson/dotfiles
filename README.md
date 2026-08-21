@@ -14,5 +14,5 @@ These are the configuration files and scripts I use in my computing
 * Launcher - [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 * Web Browser - [LibreWolf](https://librewolf.net/)
 * Video Player - [mpv](https://mpv.io/)
-* File Manager - [lf](https://github.com/gokcehan/lf) or [Thunar](https://docs.xfce.org/xfce/thunar/start)
-* Text Editor - [Neovim](https://neovim.io/) ([NvChad](https://nvchad.com/))
+* File Manager - [lf](https://github.com/gokcehan/lf)
+* Text Editor - [Neovim](https://neovim.io/)

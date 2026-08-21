@@ -1,2 +1,4 @@
 #!/bin/sh
-kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty
+# a=d (delete), d=A (all), q=2 (quiet - no response)
+printf "\033_Ga=d,d=A,q=2\033\\" > /dev/tty
+# kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty

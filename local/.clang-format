@@ -5,3 +5,4 @@ BreakBeforeBraces: Linux
 ColumnLimit: 120
 InsertBraces: True
 AllowShortFunctionsOnASingleLine: None
+BreakTemplateDeclarations: Yes
