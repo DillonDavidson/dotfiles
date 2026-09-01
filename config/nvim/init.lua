@@ -267,19 +267,24 @@ do
   -- vim.cmd.colorscheme("catppuccin")
 
   -- Gruvbox
-  vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
-  require("gruvbox").setup({
-    bold = false,
-    italic = {
-      strings = false,
-      emphasis = false,
-      comments = false,
-      operators = false,
-      folds = false,
-    },
-  })
-  vim.o.background = "dark"
-  vim.cmd.colorscheme("gruvbox")
+  -- vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
+  -- require("gruvbox").setup({
+  --   bold = false,
+  --   italic = {
+  --     strings = false,
+  --     emphasis = false,
+  --     comments = false,
+  --     operators = false,
+  --     folds = false,
+  --   },
+  -- })
+  -- vim.o.background = "dark"
+  -- vim.cmd.colorscheme("gruvbox")
+
+  vim.pack.add({ gh("sonph/onehalf") })
+  vim.opt.rtp:append(vim.fs.joinpath(vim.fn.stdpath("data"), "site/pack/core/opt/onehalf/vim"))
+  vim.o.background = "light"
+  vim.cmd.colorscheme("onehalflight")
 
   -- Nord
   -- vim.pack.add({ gh("shaunsingh/nord.nvim") })
