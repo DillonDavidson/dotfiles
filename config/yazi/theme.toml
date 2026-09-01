@@ -1,5 +1,5 @@
 [mgr]
-syntect_theme = "/home/dillon/.config/yazi/kanagawa.tmTheme"
+syntect_theme = "/home/dillon/.config/yazi/gruvbox.tmTheme"
 
 # Border
 border_symbol = " "

@@ -16,7 +16,7 @@ do
 	vim.o.undofile = true
 	vim.o.ignorecase = true
 	vim.o.smartcase = true
-	vim.o.signcolumn = "yes"
+	vim.o.signcolumn = "auto" -- was "yes"
 	vim.o.updatetime = 250
 	vim.o.timeoutlen = 300
 	vim.o.splitright = true
@@ -27,11 +27,8 @@ do
 	vim.o.scrolloff = 0
 	vim.o.confirm = true
 	vim.o.termguicolors = true
-	-- vim.o.laststatus = 0 -- disable this
+	vim.o.laststatus = 0 -- disable this
 	vim.o.cmdheight = 0 -- disable this
-  -- vim.o.winbar = "%f"
-  -- vim.o.laststatus = 3
-  -- vim.o.statusline = "%f %m"
 
 	-- Clear highlights on search when pressing <Esc> in normal mode vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -39,6 +36,7 @@ do
 	vim.diagnostic.config({
 		update_in_insert = false,
 		severity_sort = true,
+    signs = false,
 		float = { border = "rounded", source = "if_many" },
 		underline = { severity = { min = vim.diagnostic.severity.WARN } },
 
@@ -194,6 +192,7 @@ do
 			changedelete = { text = "~" }, ---@diagnostic disable-line: missing-fields
 		},
 	})
+  require('gitsigns').toggle_signs(false)
 
 	vim.pack.add({ gh("folke/which-key.nvim") })
 	require("which-key").setup({
@@ -226,38 +225,66 @@ do
   -- vim.o.background = "light"
   -- vim.cmd.colorscheme("solarized")
 
-  vim.pack.add({ gh("rebelot/kanagawa.nvim") })
-  require('kanagawa').setup({
-      compile = true,             -- enable compiling the colorscheme
-      undercurl = true,            -- enable undercurls
-      commentStyle = { italic = false },
-      functionStyle = {},
-      keywordStyle = { italic = false },
-      statementStyle = { bold = false },
-      variablebuiltinStyle = { italic = false },
-      typeStyle = {},
-      transparent = false,         -- do not set background color
-      dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-      terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-      colors = {                   -- add/modify theme and palette colors
-          palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-      },
-      overrides = function(colors)
-        return {
-          ["@variable.builtin"] = { italic = false },
-          ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
-        }
-      end,
-      theme = "wave",              -- Load "wave" theme
-      background = {               -- map the value of 'background' option to a theme
-          dark = "wave",           -- try "dragon" !
-          light = "lotus"
-      },
-  })
+  -- vim.pack.add({ gh("rebelot/kanagawa.nvim") })
+  -- require('kanagawa').setup({
+  --     compile = true,             -- enable compiling the colorscheme
+  --     undercurl = true,            -- enable undercurls
+  --     commentStyle = { italic = false },
+  --     functionStyle = {},
+  --     keywordStyle = { italic = false },
+  --     statementStyle = { bold = false },
+  --     variablebuiltinStyle = { italic = false },
+  --     typeStyle = {},
+  --     transparent = false,         -- do not set background color
+  --     dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+  --     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+  --     colors = {                   -- add/modify theme and palette colors
+  --         palette = {},
+  --         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+  --     },
+  --     overrides = function(colors)
+  --       return {
+  --         ["@variable.builtin"] = { italic = false },
+  --         ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
+  --       }
+  --     end,
+  --     theme = "wave",              -- Load "wave" theme
+  --     background = {               -- map the value of 'background' option to a theme
+  --         dark = "wave",           -- try "dragon" !
+  --         light = "lotus"
+  --     },
+  -- })
+  --
+  -- -- setup must be called before loading
+  -- vim.cmd("colorscheme kanagawa")
 
-  -- setup must be called before loading
-  vim.cmd("colorscheme kanagawa")
+  -- Catppuccin (Mocha)
+  -- vim.pack.add({ gh("catppuccin/nvim") })
+  -- require("catppuccin").setup({
+  --   flavour = "mocha",
+  --   no_italic = true,
+  -- })
+  -- vim.cmd.colorscheme("catppuccin")
+
+  -- Gruvbox
+  vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
+  require("gruvbox").setup({
+    bold = false,
+    italic = {
+      strings = false,
+      emphasis = false,
+      comments = false,
+      operators = false,
+      folds = false,
+    },
+  })
+  vim.o.background = "dark"
+  vim.cmd.colorscheme("gruvbox")
+
+  -- Nord
+  -- vim.pack.add({ gh("shaunsingh/nord.nvim") })
+  -- vim.g.nord_italic = false
+  -- vim.cmd.colorscheme("nord")
 
 	-- [[ NOTE: Colorscheme ]]
 
@@ -794,7 +821,22 @@ do
 
   vim.keymap.set("n", "<leader>pc", pack_clean, { desc = "[P]ackage [C]leanup" })
 
-  -- HERE --
+  vim.keymap.set('n', '<leader>n', ':set number!<CR>', { silent = true })
+
+  vim.keymap.set('n', '<leader>gs', function()
+    require('gitsigns').toggle_signs()
+  end, { silent = true, desc = 'Toggle git signs' })
+
+  local function toggle_winbar()
+    if vim.o.winbar == "" then
+      vim.o.winbar = "%f %m"
+    else
+      vim.o.winbar = ""
+    end
+  end
+
+  vim.keymap.set("n", "<leader>tw", toggle_winbar, { desc = "Toggle winbar" })
+
   vim.keymap.set('n', '<Tab>', ':bn<CR>')
   vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
 
