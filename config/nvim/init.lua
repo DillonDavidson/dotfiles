@@ -208,55 +208,55 @@ do
 
 	-- [[ NOTE: Colorscheme ]]
 
-	-- vim.pack.add({ gh("folke/tokyonight.nvim") })
-	-- ---@diagnostic disable-next-line: missing-fields
-	-- require("tokyonight").setup({
-	-- 	styles = {
-	-- 		comments = { italic = false },
-	--      keywords = { italic = false},
-	-- 	},
-	-- })
-	--
-	-- -- A few options: 'tokyonight-night', 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'
-	-- vim.cmd.colorscheme("tokyonight-night")
+	vim.pack.add({ gh("folke/tokyonight.nvim") })
+	---@diagnostic disable-next-line: missing-fields
+	require("tokyonight").setup({
+		styles = {
+			comments = { italic = false },
+	     keywords = { italic = false},
+		},
+	})
+
+	-- A few options: 'tokyonight-night', 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'
+	vim.cmd.colorscheme("tokyonight-night")
 
   -- vim.pack.add({ gh("maxmx03/solarized.nvim") })
   -- require("solarized").setup()
   -- vim.o.background = "light"
   -- vim.cmd.colorscheme("solarized")
 
-  -- vim.pack.add({ gh("rebelot/kanagawa.nvim") })
-  -- require('kanagawa').setup({
-  --     compile = true,             -- enable compiling the colorscheme
-  --     undercurl = true,            -- enable undercurls
-  --     commentStyle = { italic = false },
-  --     functionStyle = {},
-  --     keywordStyle = { italic = false },
-  --     statementStyle = { bold = false },
-  --     variablebuiltinStyle = { italic = false },
-  --     typeStyle = {},
-  --     transparent = false,         -- do not set background color
-  --     dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-  --     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-  --     colors = {                   -- add/modify theme and palette colors
-  --         palette = {},
-  --         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-  --     },
-  --     overrides = function(colors)
-  --       return {
-  --         ["@variable.builtin"] = { italic = false },
-  --         ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
-  --       }
-  --     end,
-  --     theme = "wave",              -- Load "wave" theme
-  --     background = {               -- map the value of 'background' option to a theme
-  --         dark = "wave",           -- try "dragon" !
-  --         light = "lotus"
-  --     },
-  -- })
-  --
-  -- -- setup must be called before loading
-  -- vim.cmd("colorscheme kanagawa")
+  vim.pack.add({ gh("rebelot/kanagawa.nvim") })
+  require('kanagawa').setup({
+      compile = true,             -- enable compiling the colorscheme
+      undercurl = true,            -- enable undercurls
+      commentStyle = { italic = false },
+      functionStyle = {},
+      keywordStyle = { italic = false },
+      statementStyle = { bold = false },
+      variablebuiltinStyle = { italic = false },
+      typeStyle = {},
+      transparent = false,         -- do not set background color
+      dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+      colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      },
+      overrides = function(colors)
+        return {
+          ["@variable.builtin"] = { italic = false },
+          ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
+        }
+      end,
+      theme = "wave",              -- Load "wave" theme
+      background = {               -- map the value of 'background' option to a theme
+          dark = "wave",           -- try "dragon" !
+          light = "lotus"
+      },
+  })
+
+  -- setup must be called before loading
+  vim.cmd("colorscheme kanagawa")
 
   -- Catppuccin (Mocha)
   -- vim.pack.add({ gh("catppuccin/nvim") })
@@ -267,19 +267,19 @@ do
   -- vim.cmd.colorscheme("catppuccin")
 
   -- Gruvbox
-  vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
-  require("gruvbox").setup({
-    bold = false,
-    italic = {
-      strings = false,
-      emphasis = false,
-      comments = false,
-      operators = false,
-      folds = false,
-    },
-  })
-  vim.o.background = "dark"
-  vim.cmd.colorscheme("gruvbox")
+  -- vim.pack.add({ gh("ellisonleao/gruvbox.nvim") })
+  -- require("gruvbox").setup({
+  --   bold = false,
+  --   italic = {
+  --     strings = false,
+  --     emphasis = false,
+  --     comments = false,
+  --     operators = false,
+  --     folds = false,
+  --   },
+  -- })
+  -- vim.o.background = "dark"
+  -- vim.cmd.colorscheme("gruvbox")
 
   -- Nord
   -- vim.pack.add({ gh("shaunsingh/nord.nvim") })

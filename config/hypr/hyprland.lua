@@ -3,16 +3,14 @@
 ------------------
 
 hl.monitor({ output = "DP-1", mode = "1920x1080@144", position = "0x0", scale = 1 })
--- hl.monitor({ output = "DP-2", mode = "1920x1080@144", position = "0x0", scale = 1})
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1920x0", scale = 1 })
--- hl.monitor({ output = "HDMI-A-2", mode = "1920x1080@75", position = "1920x0", scale = 1 })
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
 -- Set programs that you use
-local terminal = "footclient" --"kitty"
+local terminal = "footclient"
 local menu = "fuzzel"
 
 -------------------
@@ -22,7 +20,6 @@ local menu = "fuzzel"
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/fuji.png -m fill &")
-	-- hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/ign_unsplash19.png.png -m fill &")
 	hl.exec_cmd("swaybg -o HDMI-A-1 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &")
 	hl.exec_cmd("fcitx5 & waybar & swaync & wl-paste --watch cliphist store & udiskie --tray & foot -s &")
 end)
@@ -184,6 +181,7 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("brave"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("anki"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zathura"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd('pkill -USR1 waybar'))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))

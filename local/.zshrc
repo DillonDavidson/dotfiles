@@ -67,9 +67,8 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
 alias cd="z"
-alias l="lsd -lhN --group-directories-first"
-alias ls="lsd -hN --group-directories-first"
-alias ll="lsd -AlhN --group-directories-first"
+alias ls="eza --group-directories-first --icons --width 1000"
+alias ll="eza --group-directories-first --icons -Al --total-size"
 alias grep="grep -n"
 alias gs="git status"
 alias gp="git push origin HEAD"
@@ -78,7 +77,6 @@ alias gcr="git clone --recursive"
 alias gbr='git branch | grep -v "master" | xargs git branch -D'
 alias gd="git diff -w"
 alias cat="bat"
-alias find="fd"
 alias tree='tree -a -I .git'
 
 # My Aliases
