@@ -10,7 +10,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1920x0", sc
 ---------------------
 
 -- Set programs that you use
-local terminal = "footclient"
+local terminal = "kitty" -- "footclient"
 local menu = "fuzzel"
 
 -------------------
