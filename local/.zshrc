@@ -14,6 +14,9 @@ autoload -Uz zmv
 setopt glob_dots
 setopt no_auto_menu
 setopt autocd
+unsetopt BEEP
+unsetopt LIST_BEEP
+unsetopt HIST_BEEP
 
 # History in cache directory:
 HISTSIZE=10000
@@ -122,6 +125,8 @@ bindkey -M viins '^e' end-of-line         # Ctrl+E
 export CMAKE_GENERATOR=Ninja
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
+export CXXFLAGS="-stdlib=libc++"
+export LDFLAGS="-fuse-ld=mold -stdlib=libc++"
 
 export EDITOR="nvim"
 export TERM="foot"
@@ -157,7 +162,6 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export CMAKE_CUDA_COMPILER=/opt/cuda/bin/nvcc
 export PIPEWIRE_LATENCY=128/48000
 export MPD_HOST=/run/user/1000/mpd/socket
-export LDFLAGS="-fuse-ld=mold"
 
 # Nix stuff
 # >>> Nix shell integration >>>

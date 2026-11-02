@@ -208,17 +208,17 @@ do
 
 	-- [[ NOTE: Colorscheme ]]
 
-	vim.pack.add({ gh("folke/tokyonight.nvim") })
-	---@diagnostic disable-next-line: missing-fields
-	require("tokyonight").setup({
-		styles = {
-			comments = { italic = false },
-	     keywords = { italic = false},
-		},
-	})
-
-	-- A few options: 'tokyonight-night', 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'
-	vim.cmd.colorscheme("tokyonight-night")
+	-- vim.pack.add({ gh("folke/tokyonight.nvim") })
+	-- ---@diagnostic disable-next-line: missing-fields
+	-- require("tokyonight").setup({
+	-- 	styles = {
+	-- 		comments = { italic = false },
+	--      keywords = { italic = false},
+	-- 	},
+	-- })
+	--
+	-- -- A few options: 'tokyonight-night', 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'
+	-- vim.cmd.colorscheme("tokyonight-night")
 
   -- vim.pack.add({ gh("maxmx03/solarized.nvim") })
   -- require("solarized").setup()

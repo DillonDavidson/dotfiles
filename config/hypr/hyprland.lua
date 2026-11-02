@@ -10,7 +10,7 @@ hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1920x0", sc
 ---------------------
 
 -- Set programs that you use
-local terminal = "kitty" -- "footclient"
+local terminal =  "footclient" -- "kitty"
 local menu = "fuzzel"
 
 -------------------
@@ -19,7 +19,7 @@ local menu = "fuzzel"
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/fuji.png -m fill &")
+	hl.exec_cmd("swaybg -o DP-1 -i ~/Pictures/Wallpapers/nagano.png -m fill &") -- was fuji.png
 	hl.exec_cmd("swaybg -o HDMI-A-1 -i ~/Pictures/Wallpapers/ign_unsplash23.png -m fill &")
 	hl.exec_cmd("fcitx5 & waybar & swaync & wl-paste --watch cliphist store & udiskie --tray & foot -s &")
 end)
@@ -177,6 +177,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cli
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("librewolf"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("pcmanfm"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("brave"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("anki"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zathura"))
@@ -283,3 +284,9 @@ hl.window_rule({
 	move = "20 monitor_h-120",
 	float = true,
 })
+
+-- hl.window_rule({
+--   match = { class = "steam_app_1222690" },
+--   monitor = "DP-1",
+--   fullscreen = true,
+-- })

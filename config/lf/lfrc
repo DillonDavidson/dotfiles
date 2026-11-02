@@ -47,3 +47,12 @@ cmd fzf_jump ${{
 	fi
 }}
 map <c-f> :fzf_jump
+
+cmd toggle-preview %{{
+    if [ "$lf_preview" = true ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+    else
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+    fi
+}}
+map zp toggle-preview
