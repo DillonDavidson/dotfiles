@@ -230,7 +230,7 @@ do
       compile = true,             -- enable compiling the colorscheme
       undercurl = true,            -- enable undercurls
       commentStyle = { italic = false },
-      functionStyle = {},
+      functionStyle = { bold = false },
       keywordStyle = { italic = false },
       statementStyle = { bold = false },
       variablebuiltinStyle = { italic = false },
@@ -245,7 +245,8 @@ do
       overrides = function(colors)
         return {
           ["@variable.builtin"] = { italic = false },
-          ["@variable.builtin.cpp"] = { italic = false }, -- in case it's a language-specific capture
+          ["@variable.builtin.cpp"] = { italic = false },
+          ["@lsp.typemod.function.readonly"] = { link = "Function" },
         }
       end,
       theme = "wave",              -- Load "wave" theme
